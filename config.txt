@@ -1,0 +1,37 @@
+####base info####
+wallet|0x348DaAFE6D176F3fa14BC48339556138F3712bb2
+pool|stratum+ssl://eth-hke.flexpool.io:22271
+log|C:/miner_log/
+
+####miner info####
+1|teamredminer,轻松旷工
+2|teamredminer,轻松旷工
+3|teamredminer,轻松旷工
+4|trexminer,miner.bar
+5|trexminer,miner.bar
+6|trexminer,miner.bar
+7|trexminer,miner.bar
+8|trexminer,miner.bar
+
+
+####overclock info####
+1|
+2|
+3|
+4|--mclock 1300 --lock-cclock 1550 --fan 70 --lhr 75 --lhr-reduce-value 0.1 --log C:/miner_log/
+5|
+6|
+7|
+8|
+
+
+
+####operation info####
+1|
+2|
+3|
+4|restart_miner,restart_monitor,get_current_log
+5|
+6|
+7|
+8|
