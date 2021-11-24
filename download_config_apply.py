@@ -76,7 +76,23 @@ def download(retry_times = 3):
             send_email.send_email("download git fail", err, 1, 3)
 
 def apply_operation():
-    supported_order_list = ['restart_miner', 'restart_monitor', 'get_current_log','shutdown','restart_compute','stop_miner','start_miner']
+    supported_order_list = ['get_current_log', 'stop_miner', 'start_miner', 'restart_miner', 'restart_monitor', 'shutdown', 'restart_compute']
     order_list = []
     if NEED_OPERATION == True:
         order_list = get_operation(FILE_PATH + "windows_control_miner-main/config.txt").split(',')
+    
+    for order in supported_order_list:
+        if order == 'get_current_log' and order in order_list:
+            pass
+        elif order == 'stop_miner' and order in order_list:
+            pass
+        elif order == 'start_miner' and order in order_list:
+            pass
+        elif order == 'restart_miner' and order in order_list:
+            pass
+        elif order == 'restart_monitor' and order in order_list:
+            pass
+        elif order == 'shutdown' and order in order_list:
+            pass
+        elif order == 'restart_compute' and order in order_list:
+            pass
