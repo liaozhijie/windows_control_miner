@@ -80,7 +80,10 @@ def apply_operation():
     order_list = []
     if NEED_OPERATION == True:
         order_list = get_operation(FILE_PATH + "windows_control_miner-main/config.txt").split(',')
-    
+        if order_list == False:
+            send_email.send_email("get operation fail", "get operation fail", 1, 3)
+
+
     for order in supported_order_list:
         if order == 'get_current_log' and order in order_list:
             pass
@@ -96,3 +99,35 @@ def apply_operation():
             pass
         elif order == 'restart_compute' and order in order_list:
             pass
+
+
+
+def get_config_data(config_path):
+    machine = get_machine()
+    miner_info,overclock_info = 0, 0
+    config_dict = {}
+    try:
+        with open(config_path) as f:
+            for line in f.split('\n'):
+                if 'miner info' in line:
+                    miner_info = 1
+                if 'overclock info' in line:
+                    overclock_info = 1
+                    miner_info = 0
+                if 'operation info' in line:
+                    overclock_info = 0
+
+                if 'wallet' in line:
+                    config_dict['wallet'] = line.split('|')[1]
+                if 'pool' in line:
+                    config_dict['pool'] = line.split('|')[1]
+                if 'log' in line:
+                    config_dict['log'] = line.split('|')[1]
+                if miner_info == 1 and str(machine) + '|' in line:
+                    config_dict['miner_info'] = line.split('|')[1]
+                if overclock_info == 1 and str(machine) + '|' in line:
+                    config_dict['overclock_info'] = line.split('|')[1]
+    except Exception as err:
+        send_email.send_email("get config fail", err, 1, 3)
+    print ("config_dict",config_dict)
+    return config_dict
