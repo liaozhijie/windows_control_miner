@@ -11,6 +11,9 @@ from email.mime.image import MIMEImage
 from email.mime.application import MIMEApplication
 from email import encoders
 
+#3301075190,szdrkmcumtcudage
+#604638487,tcoyxslsopdmbbdb
+
 RECEIVERS_copy = ['604638487@qq.com','3567741421@qq.com','3080002996@qq.com']
 RECEIVERS_self = ['604638487@qq.com']
 
@@ -42,3 +45,5 @@ def send_email(title, content, send_self, retry_times):
         time.sleep(60)
         if retry_times > 0:
             send_email(title, content, receiver_list, retry_times-1)
+        else:
+            print ("send email fail 3 times, content: %s" % content)
