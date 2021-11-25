@@ -4,14 +4,14 @@ pool|stratum+ssl://eth-hke.flexpool.io:22271
 log|C:/miner_log/
 
 ####miner info####
-1|teamredminer,轻松旷工
-2|teamredminer,轻松旷工
-3|teamredminer,轻松旷工
-4|trexminer,miner.bar
-5|trexminer,miner.bar
-6|trexminer,miner.bar
-7|trexminer,miner.bar
-8|trexminer,miner.bar
+1|teamredminer,轻松旷工,gpu_num6,gpu_hr170
+2|teamredminer,轻松旷工,gpu_num6,gpu_hr170
+3|teamredminer,轻松旷工,gpu_num6,gpu_hr170
+4|t-rex.exe,miner.bar,gpu_num6,gpu_hr170
+5|t-rex.exe,miner.bar,gpu_num6,gpu_hr170
+6|t-rex.exe,miner.bar,gpu_num6,gpu_hr170
+7|t-rex.exe,miner.bar,gpu_num6,gpu_hr170
+8|t-rex.exe,miner.bar,gpu_num6,gpu_hr170
 
 
 ####overclock info####
@@ -35,3 +35,4 @@ log|C:/miner_log/
 6|
 7|
 8|
+
