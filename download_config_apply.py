@@ -52,6 +52,7 @@ def check_two_files(file1, file2):
 
 
 def download(retry_times = 3):
+    if_send_fail_email = 0
     try:
         r = requests.get(GITHUB_LINK)
         with open(FILE_PATH + "main.zip", "wb") as code:
@@ -62,10 +63,13 @@ def download(retry_times = 3):
             zip_file.extract(f, CP_PATH)
             if os.path.exists(FILE_PATH + f.split('/')[-1]) is False:
                 zip_file.extract(f, FILE_PATH)
+                if_send_fail_email = 1
             elif 'config' in f and get_operation(CP_PATH + f) != get_operation(FILE_PATH + f.split('/')[-1]):
+                if_send_fail_email = 1
                 zip_file.extract(f, FILE_PATH)
                 NEED_OPERATION = True
             elif check_two_files(CP_PATH + f, FILE_PATH + f.split('/')[-1]) is False:
+                if_send_fail_email = 1
                 zip_file.extract(f, FILE_PATH)
 
         zip_file.close()
@@ -75,7 +79,8 @@ def download(retry_times = 3):
         if retry_times > 0:
             download(retry_times-1)
         else:
-            send_email.send_email("download git fail", err, 1, 3)
+            if if_send_fail_email == 1:
+                send_email.send_email("download git fail", err, 1, 3)
 
 def apply_operation():
     supported_order_list = ['get_current_log', 'stop_miner', 'start_miner', 'restart_miner', 'restart_monitor', 'shutdown', 'restart_compute']
