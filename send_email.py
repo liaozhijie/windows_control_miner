@@ -29,7 +29,7 @@ def send_email(title, content, send_self, retry_times):
     MAIL_POSTFIX = "qq.com"
     sender = '604638487@qq.com'
     message = MIMEText(content, 'plain', 'utf-8')
-    message['Subject'] = Header(machine + title,"utf-8")
+    message['Subject'] = Header(str(machine) + ' ' + title,"utf-8")
     message['To'] = ";".join(receiver_list)
     message['From'] = '604638487@qq.com'
     try:
