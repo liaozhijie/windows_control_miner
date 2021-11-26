@@ -107,7 +107,7 @@ def apply_operation():
         elif order == 'restart_monitor' and order in order_list:
             monitor.start_monitor(1, config_dict)
         elif order == 'shutdown' and order in order_list:
-            os.system("shutdown -s -t 10")
+            os.system("shutdown -s -t 120")
         elif order == 'restart_compute' and order in order_list:
             os.system("shutdown -r -t 10")
 
