@@ -27,7 +27,7 @@ log|C:/miner_log/
 
 
 ####operation info####
-1|
+1|shutdown
 2|
 3|
 4|restart_miner,restart_monitor,get_current_log
