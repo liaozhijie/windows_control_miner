@@ -6,6 +6,7 @@ import send_email
 FILE_PATH = 'C:/github/'
 
 def start_mining(if_restart, CONFIG_DICT):
+    print ("start mining")
     miner_software, start_file_path = CONFIG_DICT['miner_info'].split(',')[:2]
     if if_restart == 1 and '轻松旷工' not in miner_software:
         os.system(r'taskkill /F /IM miner.exe')
