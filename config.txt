@@ -2,37 +2,38 @@
 wallet|0x348DaAFE6D176F3fa14BC48339556138F3712bb2\n
 pool|stratum+ssl://eth-hke.flexpool.io:22271\n
 log|C:/miner_log/\n
+\n
 
 ####miner info####\n
-1|teamredminer,轻松旷工,gpu_num6,gpu_hr170
-2|teamredminer,轻松旷工,gpu_num6,gpu_hr170
-3|teamredminer,轻松旷工,gpu_num6,gpu_hr170
-4|t-rex.exe,miner.bar,gpu_num6,gpu_hr170
-5|t-rex.exe,miner.bar,gpu_num6,gpu_hr170
-6|t-rex.exe,miner.bar,gpu_num6,gpu_hr170
-7|t-rex.exe,miner.bar,gpu_num6,gpu_hr170
-8|t-rex.exe,miner.bar,gpu_num6,gpu_hr170
+1|teamredminer,轻松旷工,gpu_num6,gpu_hr170\n
+2|teamredminer,轻松旷工,gpu_num6,gpu_hr170\n
+3|teamredminer,轻松旷工,gpu_num6,gpu_hr170\n
+4|t-rex.exe,miner.bar,gpu_num6,gpu_hr170\n
+5|t-rex.exe,miner.bar,gpu_num6,gpu_hr170\n
+6|t-rex.exe,miner.bar,gpu_num6,gpu_hr170\n
+7|t-rex.exe,miner.bar,gpu_num6,gpu_hr170\n
+8|t-rex.exe,miner.bar,gpu_num6,gpu_hr170\n
+\n
+
+####overclock info####\n
+1|\n
+2|\n
+3|\n
+4|--mclock 1300 --lock-cclock 1550 --fan 70 --lhr 75 --lhr-reduce-value 0.1 --log C:/miner_log/\n
+5|\n
+6|\n
+7|\n
+8|\n
+\n
 
 
-####overclock info####
-1|
-2|
-3|
-4|--mclock 1300 --lock-cclock 1550 --fan 70 --lhr 75 --lhr-reduce-value 0.1 --log C:/miner_log/
-5|
-6|
-7|
-8|
-
-
-
-####operation info####
-1|shutdown
-2|
-3|
-4|restart_miner,restart_monitor,get_current_log
-5|
-6|
-7|
-8|
-
+####operation info####\n
+1|shutdown\n
+2|\n
+3|\n
+4|restart_miner,restart_monitor,get_current_log\n
+5|\n
+6|\n
+7|\n
+8|\n
+\n
