@@ -60,7 +60,8 @@ def download(retry_times = 3):
         zip_file = zipfile.ZipFile(FILE_PATH + "main.zip")
         zip_list = zip_file.namelist()
         for f in zip_list:
-            zip_file.extract(f, CP_PATH)
+            f_copy = f
+            zip_file.extract(f_copy, CP_PATH)
             if os.path.exists(FILE_PATH + f.split('/')[-1]) is False:
                 zip_file.extract(f, FILE_PATH)
                 if 'config' in f:
