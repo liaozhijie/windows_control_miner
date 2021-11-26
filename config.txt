@@ -1,9 +1,9 @@
-####base info####
-wallet|0x348DaAFE6D176F3fa14BC48339556138F3712bb2
-pool|stratum+ssl://eth-hke.flexpool.io:22271
-log|C:/miner_log/
+####base info####\n
+wallet|0x348DaAFE6D176F3fa14BC48339556138F3712bb2\n
+pool|stratum+ssl://eth-hke.flexpool.io:22271\n
+log|C:/miner_log/\n
 
-####miner info####
+####miner info####\n
 1|teamredminer,轻松旷工,gpu_num6,gpu_hr170
 2|teamredminer,轻松旷工,gpu_num6,gpu_hr170
 3|teamredminer,轻松旷工,gpu_num6,gpu_hr170
