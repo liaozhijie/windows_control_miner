@@ -18,7 +18,7 @@ RECEIVERS_copy = ['604638487@qq.com','3567741421@qq.com','3080002996@qq.com']
 RECEIVERS_self = ['604638487@qq.com']
 
 def get_machine():
-    pass
+    return ('1')
 
 def send_email(title, content, send_self, retry_times):
     receiver_list = RECEIVERS_self if send_self else RECEIVERS_copy
