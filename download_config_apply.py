@@ -5,6 +5,8 @@ import time
 import send_email
 import requests
 import zipfile
+import monitor
+import miner
 
 GITHUB_LINK = 'https://github.com/liaozhijie/windows_control_miner/archive/refs/heads/main.zip'
 FILE_PATH = 'C:/github/'
@@ -82,23 +84,25 @@ def apply_operation():
         order_list = get_operation(FILE_PATH + "windows_control_miner-main/config.txt").split(',')
         if order_list == False:
             send_email.send_email("get operation fail", "get operation fail", 1, 3)
-
+    config_dict = get_config_data(FILE_PATH + "windows_control_miner-main/config.txt")
 
     for order in supported_order_list:
         if order == 'get_current_log' and order in order_list:
-            pass
+            content = monitor.get_current_log(get_config_data(config_dict))
+            send_email.send_email("get current log", content, 1, 3)
         elif order == 'stop_miner' and order in order_list:
-            pass
+            os.system(r'taskkill /F /IM miner.exe')
+            time.sleep(60)
         elif order == 'start_miner' and order in order_list:
-            pass
+            miner.start_mining(0, config_dict)
         elif order == 'restart_miner' and order in order_list:
-            pass
+            miner.start_mining(1, config_dict)
         elif order == 'restart_monitor' and order in order_list:
-            pass
+            monitor.start_monitor(1, config_dict)
         elif order == 'shutdown' and order in order_list:
-            pass
+            os.system("shutdown -s -t 10")
         elif order == 'restart_compute' and order in order_list:
-            pass
+            os.system("shutdown -r -t 10")
 
 
 
