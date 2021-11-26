@@ -111,10 +111,13 @@ def apply_operation(NEED_OPERATION):
             time.sleep(60)
         elif order == 'start_miner' and order in order_list:
             miner.start_mining(0, config_dict)
+            time.sleep(10)
         elif order == 'restart_miner' and order in order_list:
             miner.start_mining(1, config_dict)
+            time.sleep(10)
         elif order == 'restart_monitor' and order in order_list:
             monitor.start_monitor(1, config_dict)
+            time.sleep(10)
         elif order == 'shutdown' and order in order_list:
             os.system("shutdown -s -t 120")
         elif order == 'restart_compute' and order in order_list:
