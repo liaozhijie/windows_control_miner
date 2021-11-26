@@ -13,21 +13,19 @@ FILE_PATH = 'C:/github/'
 CP_PATH = 'C:/github/cp_github/'
 NEED_OPERATION = False
 
-def get_machine():
-    pass
 
 def get_operation(file_path):
-    machine = get_machine()
+    machine = send_email.get_machine()
     start_count = 0
-    with open(file_path) as f:
-        for line in f.split('\n'):
+    with open(file_path, 'r') as f:
+        for line in f:
             if 'operation info' in line:
                 start_count = 1
             if start_count == 0:
                 continue
             if str(machine) + '|' in line:
                 print ("operation: ", line)
-                return line.strip(str(machine) + '|')
+                return line.strip(str(machine) + '|').strip('\n')
     print ("cat not find machine overclock param, check the config.txt")
     return False
 
@@ -93,12 +91,13 @@ def download(if_apply_operation, retry_times = 3):
         apply_operation(NEED_OPERATION)
 
 def apply_operation(NEED_OPERATION):
-    print (1)
+
     supported_order_list = ['get_current_log', 'stop_miner', 'start_miner', 'restart_miner', 'restart_monitor', 'shutdown', 'restart_compute']
     order_list = []
     if NEED_OPERATION == True:
-        print (2)
+
         order_list = get_operation(FILE_PATH + "windows_control_miner-main/config.txt").split(',')
+        print ('order_list',order_list)
         if order_list == False:
             send_email.send_email("get operation fail", "get operation fail", 1, 3)
     config_dict = get_config_data(FILE_PATH + "windows_control_miner-main/config.txt")
@@ -124,7 +123,7 @@ def apply_operation(NEED_OPERATION):
 
 
 def get_config_data(config_path):
-    machine = get_machine()
+    machine = send_email.get_machine()
     miner_info,overclock_info = 0, 0
     config_dict = {}
     try:
@@ -140,10 +139,10 @@ def get_config_data(config_path):
                     overclock_info = 0
 
                 if 'wallet' in line:
-                    config_dict['wallet'] = line.split('|')[1]
+                    config_dict['wallet'] = line.split('|')[1].strip('\n')
                 if 'pool' in line:
                     config_dict['pool'] = line.split('|')[1]
-                if 'log' in line:
+                if 'log|' in line:
                     config_dict['log'] = line.split('|')[1]
                 if miner_info == 1 and str(machine) + '|' in line:
                     config_dict['miner_info'] = line.split('|')[1]
