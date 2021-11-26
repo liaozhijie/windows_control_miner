@@ -107,22 +107,29 @@ def apply_operation(NEED_OPERATION):
             if order == 'get_current_log' and order in order_list:
                 content = monitor.get_current_log(get_config_data(config_dict))
                 send_email.send_email("get current log", content, 1, 3)
+                break
             elif order == 'stop_miner' and order in order_list:
                 os.system(r'taskkill /F /IM miner.exe')
                 time.sleep(60)
+                break
             elif order == 'start_miner' and order in order_list:
                 miner.start_mining(0, config_dict)
                 time.sleep(10)
+                break
             elif order == 'restart_miner' and order in order_list:
                 miner.start_mining(1, config_dict)
                 time.sleep(10)
+                break
             elif order == 'restart_monitor' and order in order_list:
                 monitor.start_monitor(1, config_dict)
                 time.sleep(10)
+                break
             elif order == 'shutdown' and order in order_list:
                 os.system("shutdown -s -t 120")
+                break
             elif order == 'restart_compute' and order in order_list:
                 os.system("shutdown -r -t 10")
+                break
 
 
 
