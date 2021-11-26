@@ -92,7 +92,7 @@ def download(if_apply_operation, retry_times = 3):
 
 def apply_operation(NEED_OPERATION):
 
-    supported_order_list = ['get_current_log', 'stop_miner', 'start_miner', 'restart_miner', 'restart_monitor', 'shutdown', 'restart_compute']
+    supported_order_list = ['get_current_log', 'start_miner', 'restart_miner', 'stop_miner', 'restart_monitor', 'shutdown', 'restart_compute']
     order_list = []
     if NEED_OPERATION == True:
 
