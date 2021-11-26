@@ -1,5 +1,5 @@
-####base info####\n
-wallet|0x348DaAFE6D176F3fa14BC48339556138F3712bb2\n
+####base info####
+wallet|0x348DaAFE6D176F3fa14BC48339556138F3712bb2
 pool|stratum+ssl://eth-hke.flexpool.io:22271\n
 log|C:/miner_log/\n
 \n
