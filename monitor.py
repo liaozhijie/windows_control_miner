@@ -480,3 +480,10 @@ def start_monitor(if_restart, CONFIG_DICT):
         start_nbminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate)
     elif 'teamredminer' in miner_software:
         start_teamredminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate)
+        
+        
+def get_current_log(config_dict):
+    miner_software, start_file, num_of_gpu, limint_hashrate = config_dict['miner_info'].split(',')
+    log_file = config_dict['log'] + max(os.listdir(config_dict['log'])) if 't-rex' not in miner_software else config_dict['log'] + 'trex_log.txt'
+    with open(log_file, 'r') as f:
+        return ('\n'.join(f.read().split('\n')[-50:]))
