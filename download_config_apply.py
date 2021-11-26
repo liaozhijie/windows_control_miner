@@ -51,7 +51,8 @@ def check_two_files(file1, file2):
     return True
 
 
-def download(retry_times = 3):
+def download(if_apply_operation, retry_times = 3):
+    NEED_OPERATION = False
     if_send_fail_email = 0
     try:
         r = requests.get(GITHUB_LINK)
@@ -59,7 +60,7 @@ def download(retry_times = 3):
             code.write(r.content)
         zip_file = zipfile.ZipFile(FILE_PATH + "main.zip")
         zip_list = zip_file.namelist()
-        for f in zip_list:
+        for f in zip_list[1:]:
             f_copy = f
             zip_file.extract(f_copy, CP_PATH)
             if os.path.exists(FILE_PATH + f.split('/')[-1]) is False:
@@ -67,10 +68,12 @@ def download(retry_times = 3):
                 if 'config' in f:
                     NEED_OPERATION = True
                 if_send_fail_email = 1
+
             elif 'config' in f and get_operation(CP_PATH + f) != get_operation(FILE_PATH + f.split('/')[-1]):
                 if_send_fail_email = 1
                 zip_file.extract(f, FILE_PATH)
                 NEED_OPERATION = True
+
             elif check_two_files(CP_PATH + f, FILE_PATH + f.split('/')[-1]) is False:
                 if_send_fail_email = 1
                 zip_file.extract(f, FILE_PATH)
@@ -78,6 +81,7 @@ def download(retry_times = 3):
         zip_file.close()
 
     except Exception as err:
+        print (err)
         time.sleep(60)
         if retry_times > 0:
             download(retry_times-1)
@@ -85,14 +89,19 @@ def download(retry_times = 3):
             if if_send_fail_email == 1:
                 send_email.send_email("download git fail", err, 1, 3)
 
-def apply_operation():
+    if if_apply_operation == 1:
+        apply_operation(NEED_OPERATION)
+
+def apply_operation(NEED_OPERATION):
+    print (1)
     supported_order_list = ['get_current_log', 'stop_miner', 'start_miner', 'restart_miner', 'restart_monitor', 'shutdown', 'restart_compute']
     order_list = []
     if NEED_OPERATION == True:
-        order_list = get_operation(FILE_PATH + "windows_control_miner-main/windows_control_miner-main/config.txt").split(',')
+        print (2)
+        order_list = get_operation(FILE_PATH + "windows_control_miner-main/config.txt").split(',')
         if order_list == False:
             send_email.send_email("get operation fail", "get operation fail", 1, 3)
-    config_dict = get_config_data(FILE_PATH + "windows_control_miner-main/windows_control_miner-main/config.txt")
+    config_dict = get_config_data(FILE_PATH + "windows_control_miner-main/config.txt")
 
     for order in supported_order_list:
         if order == 'get_current_log' and order in order_list:
@@ -119,8 +128,9 @@ def get_config_data(config_path):
     miner_info,overclock_info = 0, 0
     config_dict = {}
     try:
-        with open(config_path) as f:
-            for line in f.split('\n'):
+        with open(config_path, 'r') as f:
+            for line in f:
+                line = line.strip('\n')
                 if 'miner info' in line:
                     miner_info = 1
                 if 'overclock info' in line:
