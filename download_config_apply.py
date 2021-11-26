@@ -88,10 +88,10 @@ def apply_operation():
     supported_order_list = ['get_current_log', 'stop_miner', 'start_miner', 'restart_miner', 'restart_monitor', 'shutdown', 'restart_compute']
     order_list = []
     if NEED_OPERATION == True:
-        order_list = get_operation(FILE_PATH + "windows_control_miner-main/config.txt").split(',')
+        order_list = get_operation(FILE_PATH + "windows_control_miner-main/windows_control_miner-main/config.txt").split(',')
         if order_list == False:
             send_email.send_email("get operation fail", "get operation fail", 1, 3)
-    config_dict = get_config_data(FILE_PATH + "windows_control_miner-main/config.txt")
+    config_dict = get_config_data(FILE_PATH + "windows_control_miner-main/windows_control_miner-main/config.txt")
 
     for order in supported_order_list:
         if order == 'get_current_log' and order in order_list:
