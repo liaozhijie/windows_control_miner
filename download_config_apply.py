@@ -6,6 +6,7 @@ import send_email
 import requests
 import zipfile
 import miner
+from multiprocessing import Process
 
 
 GITHUB_LINK = 'https://github.com/liaozhijie/windows_control_miner/archive/refs/heads/main.zip'
@@ -113,6 +114,10 @@ def stop_monitor():
     with open(CONFIG_DICT['log'] + 'if_stop_monitor.txt', 'w') as f:
         f.write("1")
         
+def monitor_process():
+    os.system("python C:/github/windows_control_miner-main/monitor.py")
+        
+
 def apply_operation(NEED_OPERATION):
 
     supported_order_list = ['get_current_log', 'start_miner', 'restart_miner', 'stop_miner', 'restart_monitor', 'shutdown', 'restart_compute']
@@ -154,8 +159,9 @@ def apply_operation(NEED_OPERATION):
             time.sleep(10)
         elif order == 'restart_monitor' and order in order_list:
             stop_monitor()
-            time.sleep(60)
-            os.system("python C:/github/windows_control_miner-main/monitor.py")
+            time.sleep(30)
+            p = Process(target=monitor_process, args=('start_monitor',))
+            p.start()
             send_email.send_email("restart_monitor done", "restart_monitor done", 1, 3)
             time.sleep(10)
         elif order == 'shutdown' and order in order_list:
