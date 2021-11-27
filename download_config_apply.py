@@ -5,7 +5,6 @@ import time
 import send_email
 import requests
 import zipfile
-import monitor
 import miner
 import psutil
 
@@ -100,6 +99,19 @@ def get_process():
         process_list.append(psutil.Process(pid).name())
     return process_list
     
+def get_current_log():
+    CONFIG_PATH = 'C:/github/windows_control_miner-main/config.txt'
+    config_dict = get_config_data(CONFIG_PATH)
+    miner_software, start_file, num_of_gpu, limint_hashrate = config_dict['miner_info'].split(',')
+    log_file = config_dict['log'] + max(os.listdir(config_dict['log'])) if 't-rex' not in miner_software else config_dict['log'] + 'trex_log.txt'
+    with open(log_file, 'r') as f:
+        return ('\n'.join(f.read().split('\n')[-50:]))
+    
+def stop_monitor():
+    CONFIG_PATH = 'C:/github/windows_control_miner-main/config.txt'
+    CONFIG_DICT = get_config_data(CONFIG_PATH)
+    with open(CONFIG_DICT['log'] + 'if_stop_monitor.txt', 'w') as f:
+        f.write("1")
         
 def apply_operation(NEED_OPERATION):
 
@@ -117,7 +129,7 @@ def apply_operation(NEED_OPERATION):
     
     for order in supported_order_list:
         if order == 'get_current_log' and order in order_list:
-            content = monitor.get_current_log(get_config_data(config_dict))
+            content = get_current_log()
             send_email.send_email("get current log", content, 1, 3)
         elif order == 'stop_miner' and order in order_list:
             if 'cmd.exe' in process_list:
@@ -141,7 +153,7 @@ def apply_operation(NEED_OPERATION):
             send_email.send_email("restart_miner done", "restart_miner done", 1, 3)
             time.sleep(10)
         elif order == 'restart_monitor' and order in order_list:
-            monitor.stop_monitor()
+            stop_monitor()
             time.sleep(60)
             os.system("python C:/github/windows_control_miner-main/monitor.py")
             send_email.send_email("restart_monitor done", "restart_monitor done", 1, 3)
