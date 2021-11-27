@@ -51,6 +51,7 @@ def check_two_files(file1, file2):
 
 
 def download(if_apply_operation, retry_times = 3):
+    print ("start download")
     NEED_OPERATION = False
     if_send_fail_email = 0
     try:
@@ -89,6 +90,7 @@ def download(if_apply_operation, retry_times = 3):
                 send_email.send_email("download git fail", err, 1, 3)
 
     if if_apply_operation == 1:
+        print ("start apply")
         apply_operation(NEED_OPERATION)
 
         
