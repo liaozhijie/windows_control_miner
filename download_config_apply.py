@@ -81,7 +81,7 @@ def download(if_apply_operation, retry_times = 3):
         zip_file.close()
 
     except Exception as err:
-        time.sleep(60)
+        print (err)
         if retry_times > 0:
             download(retry_times-1)
         else:
