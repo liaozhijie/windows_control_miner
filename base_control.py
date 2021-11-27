@@ -17,10 +17,11 @@ def monitor_process():
 
 if __name__ == '__main__':
     #send_email.send_email("open compute", "open compute", 0, 3)
+    print ("download starting")
     download_config_apply.download(1)
     CONFIG_DICT = download_config_apply.get_config_data(CONFIG_PATH)
     #miner.start_mining(0, CONFIG_DICT)
-    
+    print ("monitor starting")
     p = Process(target=monitor_process)
     p.start()
     
