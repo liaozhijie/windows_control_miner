@@ -160,7 +160,7 @@ def apply_operation(NEED_OPERATION):
         elif order == 'restart_monitor' and order in order_list:
             stop_monitor()
             time.sleep(30)
-            p = Process(target=monitor_process, args=('start_monitor',))
+            p = Process(target=monitor_process)
             p.start()
             send_email.send_email("restart_monitor done", "restart_monitor done", 1, 3)
             time.sleep(10)
