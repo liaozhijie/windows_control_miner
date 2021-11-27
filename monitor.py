@@ -405,7 +405,7 @@ def read_lines(file_path, read_lines):
     return read_list
 
 
-def start_monitor(if_restart, CONFIG_DICT):
+def start_monitor(stop, CONFIG_DICT):
     urgent_statistics_count = 0
 
     # file_path = log_path + max(os.listdir(log_path))
@@ -417,14 +417,19 @@ def start_monitor(if_restart, CONFIG_DICT):
     log_path = CONFIG_DICT['log']
     machine = get_machine()
 
-    if if_restart == 1:
-        if 'python.exe' in download_config_apply.get_process():
-            os.system(r'taskkill /F /IM python.exe')
-            time.sleep(10)
+    with open(log_path + 'if_stop_monitor.txt','w') as f:
+        f.write("0")
+
+    if stop == 1:
+        with open(log_path + 'if_stop_monitor.txt', 'w') as f:
+            f.write("1")
 
 
     def start_teamredminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate):
-        while True:
+        def get_if_stop():
+            with open(log_path + 'if_stop_monitor.txt','r') as f:
+                return f.read() == "0"
+        while get_if_stop():
             file_path = log_path + max(os.listdir(log_path))
             if datetime.now().strftime('%H:%M:%S')[:5] == '23:00':
                 line_list = read_lines(file_path, 150000)
@@ -440,10 +445,17 @@ def start_monitor(if_restart, CONFIG_DICT):
 
             time.sleep(60)
             urgent_statistics_count += 60
+        if get_if_stop() == False:
+            print ("stop monitor done")
+            send_email("stop monitor done", "stop monitor done", 1, 3)
 
 
     def start_trexminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate):
-        while True:
+        def get_if_stop():
+            with open(log_path + 'if_stop_monitor.txt', 'r') as f:
+                return f.read() == "0"
+
+        while get_if_stop():
             file_path = log_path + 'trex_log.txt'
             if datetime.now().strftime('%H:%M:%S')[:5] == '23:00':
                 send_email(machine + "每二十四小时报告", read_trexminer_data(file_path, 86400, 0, 'ethash', 'kawpow', num_of_gpu, limint_hashrate), 0, 3)
@@ -457,11 +469,18 @@ def start_monitor(if_restart, CONFIG_DICT):
 
             time.sleep(60)
             urgent_statistics_count += 60
+        if get_if_stop() == False:
+            print ("stop monitor done")
+            send_email("stop monitor done", "stop monitor done", 1, 3)
 
 
 
     def start_nbminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate):
-        while True:
+        def get_if_stop():
+            with open(log_path + 'if_stop_monitor.txt', 'r') as f:
+                return f.read() == "0"
+
+        while get_if_stop():
             file_path = log_path + max(os.listdir(log_path))
             if datetime.now().strftime('%H:%M:%S')[:5] == '23:00':
                 send_email(machine + "每二十四小时报告",read_nbminer_data(file_path, 86400, 0, num_of_gpu, limint_hashrate), 0,3)
@@ -474,6 +493,9 @@ def start_monitor(if_restart, CONFIG_DICT):
 
             time.sleep(60)
             urgent_statistics_count += 60
+        if get_if_stop() == False:
+            print ("stop monitor done")
+            send_email("stop monitor done", "stop monitor done", 1, 3)
 
 
 
