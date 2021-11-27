@@ -133,9 +133,10 @@ def apply_operation(NEED_OPERATION):
         elif order == 'restart_miner' and order in order_list:
             if 'cmd.exe' in process_list:
                 os.system(r'taskkill /F /IM cmd.exe')
+                time.sleep(30)
             elif 'qskg.exe' in process_list:
                 os.system(r'taskkill /F /IM qskg.exe')
-            time.sleep(30)
+                time.sleep(30)
             miner.start_mining(1, config_dict)
             send_email.send_email("restart_miner done", "restart_miner done", 1, 3)
             time.sleep(10)
