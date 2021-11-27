@@ -10,7 +10,7 @@ def start_mining(if_restart, CONFIG_DICT):
     miner_software, start_file_path = CONFIG_DICT['miner_info'].split(',')[:2]
 
     os.chdir(FILE_PATH)
-    if '轻松旷工' not in miner_software:
+    if 'qskg' not in miner_software:
         with open(start_file_path, 'w') as w:
             if 't-rex' in miner_software:
                 w.write(miner_software + ' -a ethash -o ' + CONFIG_DICT['pool'] + ' -u ' + CONFIG_DICT['wallet'] + ' -p x -w ' + str(send_email.get_machine()) + ' ' + CONFIG_DICT['overclock_info'] + '\n' + 'pause')
