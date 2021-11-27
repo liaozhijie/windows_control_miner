@@ -37,7 +37,7 @@ def check_two_files(file1, file2):
     with open(file1, 'r') as f1:
         file1_list = f1.read()
     with open(file2, 'r') as f1:
-        file2_list = f2.read()
+        file2_list = f1.read()
 
     if file1_list != file2_list:
         return False
