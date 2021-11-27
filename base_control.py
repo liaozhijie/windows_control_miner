@@ -21,7 +21,7 @@ if __name__ == '__main__':
     CONFIG_DICT = download_config_apply.get_config_data(CONFIG_PATH)
     #miner.start_mining(0, CONFIG_DICT)
     
-    p = Process(target=monitor_process, args=('start_monitor',))
+    p = Process(target=monitor_process)
     p.start()
     
     #send_email.send_email("start mining", "start mining", 0, 3)
