@@ -6,7 +6,6 @@ import send_email
 import requests
 import zipfile
 import miner
-import psutil
 
 
 GITHUB_LINK = 'https://github.com/liaozhijie/windows_control_miner/archive/refs/heads/main.zip'
@@ -93,6 +92,7 @@ def download(if_apply_operation, retry_times = 3):
 
         
 def get_process():
+    import psutil
     process_list = []
     pids = psutil.pids()
     for pid in pids:
