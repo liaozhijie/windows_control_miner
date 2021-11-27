@@ -5,6 +5,7 @@ import sys
 from send_email import send_email
 from send_email import get_machine
 import download_config_apply
+import psutil
 
 def read_nbminer_data(file_path, gap_time, urgent, num_of_gpu, limint_hashrate):
     gpu_name = '3060'
