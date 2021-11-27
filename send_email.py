@@ -22,7 +22,6 @@ def get_machine():
     return ('1')
 
 def send_email(title, content, send_self, retry_times):
-    retry_times = 1
     
     receiver_list = RECEIVERS_self if send_self else RECEIVERS_copy
     machine = get_machine()
