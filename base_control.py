@@ -8,7 +8,7 @@ import send_email
 import sys
 
 CONFIG_PATH = 'C:/github/windows_control_miner-main/config.txt'
-DOWNLOAD_GAP_TIME = 600
+DOWNLOAD_GAP_TIME = 60
 machaine = '1'
 
 if __name__ == '__main__':
