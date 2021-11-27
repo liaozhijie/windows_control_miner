@@ -34,11 +34,11 @@ def get_operation(file_path):
 
 def check_two_files(file1, file2):
     file1_list, file2_list = [], []
-    with open(FILE_PATH + file1, 'r') as f1:
-        for i in f1.split('\n'):
+    with open(file1, 'r') as f1:
+        for i in f1.read().split('\n'):
             file1_list.append(i.strip(' '))
-    with open(FILE_PATH + file2, 'r') as f1:
-        for i in f1.split('\n'):
+    with open(file2, 'r') as f1:
+        for i in f1.read().split('\n'):
             file2_list.append(i.strip(' '))
 
     if len(file1_list) != len(file2_list):
