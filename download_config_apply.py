@@ -128,6 +128,7 @@ def apply_operation(NEED_OPERATION):
             send_email.send_email("get operation fail or order more than 1", "get operation fail or order more than 1", 1, 3)
             order_list = []
     config_dict = get_config_data(FILE_PATH + "windows_control_miner-main/config.txt")
+    print ("config_dict", config_dict)
     process_list = get_process()
     
     for order in supported_order_list:
@@ -199,5 +200,4 @@ def get_config_data(config_path):
                     config_dict['overclock_info'] = line.split('|')[1]
     except Exception as err:
         send_email.send_email("get config fail", err, 1, 3)
-    print ("config_dict",config_dict)
     return config_dict
