@@ -405,7 +405,22 @@ def read_lines(file_path, read_lines):
     return read_list
 
 
-def start_monitor(stop, CONFIG_DICT):
+def get_current_log(config_dict):
+    miner_software, start_file, num_of_gpu, limint_hashrate = config_dict['miner_info'].split(',')
+    log_file = config_dict['log'] + max(os.listdir(config_dict['log'])) if 't-rex' not in miner_software else config_dict['log'] + 'trex_log.txt'
+    with open(log_file, 'r') as f:
+        return ('\n'.join(f.read().split('\n')[-50:]))
+
+
+def stop_monitor():
+    CONFIG_PATH = 'C:/github/windows_control_miner-main/config.txt'
+    CONFIG_DICT = download_config_apply.get_config_data(CONFIG_PATH)
+    with open(CONFIG_DICT['log'] + 'if_stop_monitor.txt', 'w') as f:
+        f.write("1")
+
+if __name__ == '__main__':
+    CONFIG_PATH = 'C:/github/windows_control_miner-main/config.txt'
+    CONFIG_DICT = download_config_apply.get_config_data(CONFIG_PATH)
     urgent_statistics_count = 0
 
     # file_path = log_path + max(os.listdir(log_path))
@@ -419,10 +434,6 @@ def start_monitor(stop, CONFIG_DICT):
 
     with open(log_path + 'if_stop_monitor.txt','w') as f:
         f.write("0")
-
-    if stop == 1:
-        with open(log_path + 'if_stop_monitor.txt', 'w') as f:
-            f.write("1")
 
 
     def start_teamredminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate):
@@ -509,9 +520,3 @@ def start_monitor(stop, CONFIG_DICT):
         start_teamredminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate)
         print ("monitor start")
         
-        
-def get_current_log(config_dict):
-    miner_software, start_file, num_of_gpu, limint_hashrate = config_dict['miner_info'].split(',')
-    log_file = config_dict['log'] + max(os.listdir(config_dict['log'])) if 't-rex' not in miner_software else config_dict['log'] + 'trex_log.txt'
-    with open(log_file, 'r') as f:
-        return ('\n'.join(f.read().split('\n')[-50:]))
