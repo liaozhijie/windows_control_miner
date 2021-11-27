@@ -142,6 +142,8 @@ def apply_operation(NEED_OPERATION):
             time.sleep(10)
         elif order == 'restart_monitor' and order in order_list:
             monitor.start_monitor(1, config_dict)
+            time.sleep(60)
+            monitor.start_monitor(0, config_dict)
             send_email.send_email("restart_monitor done", "restart_monitor done", 1, 3)
             time.sleep(10)
         elif order == 'shutdown' and order in order_list:
