@@ -62,13 +62,13 @@ def download(if_apply_operation, retry_times = 3):
         for f in zip_list[1:]:
             f_copy = f
             zip_file.extract(f_copy, CP_PATH)
-            if os.path.exists(FILE_PATH + f.split('/')[-1]) is False:
+            if os.path.exists(FILE_PATH + f) is False:
                 zip_file.extract(f, FILE_PATH)
                 if 'config' in f:
                     NEED_OPERATION = True
                 if_send_fail_email = 1
 
-            elif 'config' in f and get_operation(CP_PATH + f) != get_operation(FILE_PATH + f.split('/')[-1]):
+            elif 'config' in f and get_operation(CP_PATH + f) != get_operation(FILE_PATH + f):
                 if_send_fail_email = 1
                 zip_file.extract(f, FILE_PATH)
                 NEED_OPERATION = True
