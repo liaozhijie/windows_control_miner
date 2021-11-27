@@ -141,9 +141,9 @@ def apply_operation(NEED_OPERATION):
             send_email.send_email("restart_miner done", "restart_miner done", 1, 3)
             time.sleep(10)
         elif order == 'restart_monitor' and order in order_list:
-            monitor.start_monitor(1, config_dict)
+            monitor.stop_monitor()
             time.sleep(60)
-            monitor.start_monitor(0, config_dict)
+            os.system("python C:/github/windows_control_miner-main/monitor.py")
             send_email.send_email("restart_monitor done", "restart_monitor done", 1, 3)
             time.sleep(10)
         elif order == 'shutdown' and order in order_list:
