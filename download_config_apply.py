@@ -79,11 +79,11 @@ def download(if_apply_operation, retry_times = 3):
         zip_file.close()
 
     except Exception as err:
-        print (err)
         time.sleep(60)
         if retry_times > 0:
             download(retry_times-1)
         else:
+            print (datetime.datetime.now(), "download fail 3 times")
             if if_send_fail_email == 1:
                 send_email.send_email("download git fail", err, 1, 3)
 
@@ -98,38 +98,37 @@ def apply_operation(NEED_OPERATION):
 
         order_list = get_operation(FILE_PATH + "windows_control_miner-main/config.txt").split(',')
         print ('order_list',order_list)
-        if order_list == False:
-            send_email.send_email("get operation fail", "get operation fail", 1, 3)
+        if order_list == False or len(order_list) > 1:
+            send_email.send_email("get operation fail or order more than 1", "get operation fail or order more than 1", 1, 3)
+            order_list = []
     config_dict = get_config_data(FILE_PATH + "windows_control_miner-main/config.txt")
     
-    for order_num in range(len(order_list)):
-        for order in supported_order_list:
-            if order == 'get_current_log' and order in order_list:
-                content = monitor.get_current_log(get_config_data(config_dict))
-                send_email.send_email("get current log", content, 1, 3)
-                break
-            elif order == 'stop_miner' and order in order_list:
-                os.system(r'taskkill /F /IM miner.exe')
-                time.sleep(60)
-                break
-            elif order == 'start_miner' and order in order_list:
-                miner.start_mining(0, config_dict)
-                time.sleep(10)
-                break
-            elif order == 'restart_miner' and order in order_list:
-                miner.start_mining(1, config_dict)
-                time.sleep(10)
-                break
-            elif order == 'restart_monitor' and order in order_list:
-                monitor.start_monitor(1, config_dict)
-                time.sleep(10)
-                break
-            elif order == 'shutdown' and order in order_list:
-                os.system("shutdown -s -t 120")
-                break
-            elif order == 'restart_compute' and order in order_list:
-                os.system("shutdown -r -t 10")
-                break
+    for order in supported_order_list:
+        if order == 'get_current_log' and order in order_list:
+            content = monitor.get_current_log(get_config_data(config_dict))
+            send_email.send_email("get current log", content, 1, 3)
+        elif order == 'stop_miner' and order in order_list:
+            os.system(r'taskkill /F /IM miner.exe')
+            send_email.send_email("stop_miner done", "stop_miner done", 1, 3)
+            time.sleep(60)
+        elif order == 'start_miner' and order in order_list:
+            miner.start_mining(0, config_dict)
+            send_email.send_email("start_miner done", "start_miner done", 1, 3)
+            time.sleep(10)
+        elif order == 'restart_miner' and order in order_list:
+            miner.start_mining(1, config_dict)
+            send_email.send_email("restart_miner done", "restart_miner done", 1, 3)
+            time.sleep(10)
+        elif order == 'restart_monitor' and order in order_list:
+            monitor.start_monitor(1, config_dict)
+            send_email.send_email("restart_monitor done", "restart_monitor done", 1, 3)
+            time.sleep(10)
+        elif order == 'shutdown' and order in order_list:
+            os.system("shutdown -s -t 120")
+            send_email.send_email("shutdown", "shutdown done", 1, 3)
+        elif order == 'restart_compute' and order in order_list:
+            os.system("shutdown -r -t 10")
+            send_email.send_email("restart_compute", "restart_compute done", 1, 3)
 
 
 
