@@ -34,9 +34,9 @@ def get_operation(file_path):
 
 def check_two_files(file1, file2):
     file1_list, file2_list = [], []
-    with open(file1, 'r') as f1:
+    with open(file1, 'rb') as f1:
         file1_list = f1.read()
-    with open(file2, 'r') as f1:
+    with open(file2, 'rb') as f1:
         file2_list = f1.read()
 
     if file1_list != file2_list:
