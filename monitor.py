@@ -501,10 +501,13 @@ def start_monitor(stop, CONFIG_DICT):
 
     if 't-rex' in miner_software:
         start_trexminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate)
+        print ("monitor start")
     elif 'nbminer' in miner_software:
         start_nbminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate)
+        print ("monitor start")
     elif 'teamredminer' in miner_software:
         start_teamredminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate)
+        print ("monitor start")
         
         
 def get_current_log(config_dict):
