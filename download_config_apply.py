@@ -161,6 +161,7 @@ def apply_operation(NEED_OPERATION):
             time.sleep(30)
             p = Process(target=monitor_process)
             p.start()
+            print ("restart monitor done")
             send_email.send_email("restart_monitor done", "restart_monitor done", 1, 3)
             time.sleep(10)
         elif order == 'shutdown' and order in order_list:
