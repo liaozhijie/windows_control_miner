@@ -14,13 +14,16 @@ from email import encoders
 #3301075190,szdrkmcumtcudage
 #604638487,tcoyxslsopdmbbdb
 
-RECEIVERS_copy = ['604638487@qq.com','3567741421@qq.com','3080002996@qq.com']
+#RECEIVERS_copy = ['604638487@qq.com','3567741421@qq.com','3080002996@qq.com']
+RECEIVERS_copy = ['604638487@qq.com']
 RECEIVERS_self = ['604638487@qq.com']
 
 def get_machine():
     return ('1')
 
 def send_email(title, content, send_self, retry_times):
+    retry_times = 1
+    
     receiver_list = RECEIVERS_self if send_self else RECEIVERS_copy
     machine = get_machine()
     mail_host = "smtp.qq.com"
