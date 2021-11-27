@@ -74,7 +74,7 @@ def download(if_apply_operation, retry_times = 3):
                 zip_file.extract(f, FILE_PATH)
                 NEED_OPERATION = True
 
-            elif check_two_files(CP_PATH + f, FILE_PATH + f.split('/')[-1]) is False:
+            elif check_two_files(CP_PATH + f, FILE_PATH + f) is False:
                 if_send_fail_email = 1
                 zip_file.extract(f, FILE_PATH)
 
