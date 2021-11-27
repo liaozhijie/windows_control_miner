@@ -69,7 +69,7 @@ def download(if_apply_operation, retry_times = 3):
                     NEED_OPERATION = True
                 if_send_fail_email = 1
 
-            elif 'config' in f and get_operation(CP_PATH + f) != get_operation(FILE_PATH + f):
+            elif 'config.txt' in f and get_operation(CP_PATH + f) != get_operation(FILE_PATH + f):
                 if_send_fail_email = 1
                 zip_file.extract(f, FILE_PATH)
                 NEED_OPERATION = True
