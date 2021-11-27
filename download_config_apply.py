@@ -69,7 +69,7 @@ def download(if_apply_operation, retry_times = 3):
                 zip_file.extract(f, FILE_PATH)
                 NEED_OPERATION = True
 
-            elif 'README.md' not in f and check_two_files(CP_PATH + f, FILE_PATH + f) is False:
+            elif check_two_files(CP_PATH + f, FILE_PATH + f) is False:
                 if_send_fail_email = 1
                 zip_file.extract(f, FILE_PATH)
 
@@ -86,6 +86,7 @@ def download(if_apply_operation, retry_times = 3):
 
     if if_apply_operation == 1:
         print ("start apply")
+        print ("NEED_OPERATION: ", NEED_OPERATION)
         apply_operation(NEED_OPERATION)
 
         
