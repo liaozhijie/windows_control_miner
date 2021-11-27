@@ -108,7 +108,8 @@ def apply_operation(NEED_OPERATION):
             content = monitor.get_current_log(get_config_data(config_dict))
             send_email.send_email("get current log", content, 1, 3)
         elif order == 'stop_miner' and order in order_list:
-            os.system(r'taskkill /F /IM miner.exe')
+            os.system(r'taskkill /F /IM cmd.exe')
+            os.system(r'taskkill /F /IM qskg.exe')
             send_email.send_email("stop_miner done", "stop_miner done", 1, 3)
             time.sleep(60)
         elif order == 'start_miner' and order in order_list:
