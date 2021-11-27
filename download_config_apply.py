@@ -7,6 +7,8 @@ import requests
 import zipfile
 import monitor
 import miner
+import psutil
+
 
 GITHUB_LINK = 'https://github.com/liaozhijie/windows_control_miner/archive/refs/heads/main.zip'
 FILE_PATH = 'C:/github/'
@@ -90,6 +92,15 @@ def download(if_apply_operation, retry_times = 3):
     if if_apply_operation == 1:
         apply_operation(NEED_OPERATION)
 
+        
+def get_process():
+    process_list = []
+    pids = psutil.pids()
+    for pid in pids:
+        process_list.append(psutil.Process(pid).name())
+    return process_list
+    
+        
 def apply_operation(NEED_OPERATION):
 
     supported_order_list = ['get_current_log', 'start_miner', 'restart_miner', 'stop_miner', 'restart_monitor', 'shutdown', 'restart_compute']
@@ -102,24 +113,29 @@ def apply_operation(NEED_OPERATION):
             send_email.send_email("get operation fail or order more than 1", "get operation fail or order more than 1", 1, 3)
             order_list = []
     config_dict = get_config_data(FILE_PATH + "windows_control_miner-main/config.txt")
+    process_list = get_process()
     
     for order in supported_order_list:
         if order == 'get_current_log' and order in order_list:
             content = monitor.get_current_log(get_config_data(config_dict))
             send_email.send_email("get current log", content, 1, 3)
         elif order == 'stop_miner' and order in order_list:
-            try:
+            if 'cmd.exe' in process_list:
                 os.system(r'taskkill /F /IM cmd.exe')
+            elif 'qskg.exe' in process_list:
                 os.system(r'taskkill /F /IM qskg.exe')
-            except:
-                pass
             send_email.send_email("stop_miner done", "stop_miner done", 1, 3)
-            time.sleep(60)
+            time.sleep(30)
         elif order == 'start_miner' and order in order_list:
             miner.start_mining(0, config_dict)
             send_email.send_email("start_miner done", "start_miner done", 1, 3)
             time.sleep(10)
         elif order == 'restart_miner' and order in order_list:
+            if 'cmd.exe' in process_list:
+                os.system(r'taskkill /F /IM cmd.exe')
+            elif 'qskg.exe' in process_list:
+                os.system(r'taskkill /F /IM qskg.exe')
+            time.sleep(30)
             miner.start_mining(1, config_dict)
             send_email.send_email("restart_miner done", "restart_miner done", 1, 3)
             time.sleep(10)
