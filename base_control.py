@@ -16,7 +16,7 @@ if __name__ == '__main__':
     download_config_apply.download(1)
     CONFIG_DICT = download_config_apply.get_config_data(CONFIG_PATH)
     #miner.start_mining(0, CONFIG_DICT)
-    monitor.start_monitor(0, CONFIG_DICT)
+    os.system("C:/github/windows_control_miner-main/monitor.py")
     #send_email.send_email("start mining", "start mining", 0, 3)
     while True:
         time.sleep(DOWNLOAD_GAP_TIME)
