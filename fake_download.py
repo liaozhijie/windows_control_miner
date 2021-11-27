@@ -11,7 +11,7 @@ if __name__ == '__main__':
             t1=datetime.datetime.now()
             r = requests.get(link)
             t2=datetime.datetime.now()
-            t3=(t1-t2).total_seconds()
+            t3=(t2-t1).total_seconds()
             print ('succees')
         except:
             print ('fail')
