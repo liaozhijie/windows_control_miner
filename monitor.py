@@ -4,6 +4,7 @@ import os
 import sys
 from send_email import send_email
 from send_email import get_machine
+import download_config_apply
 
 def read_nbminer_data(file_path, gap_time, urgent, num_of_gpu, limint_hashrate):
     gpu_name = '3060'
@@ -416,8 +417,9 @@ def start_monitor(if_restart, CONFIG_DICT):
     machine = get_machine()
 
     if if_restart == 1:
-        os.system(r'taskkill /F /IM python.exe')
-        time.sleep(10)
+        if 'python.exe' in download_config_apply.get_process():
+            os.system(r'taskkill /F /IM python.exe')
+            time.sleep(10)
 
 
     def start_teamredminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate):
