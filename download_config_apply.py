@@ -35,18 +35,13 @@ def get_operation(file_path):
 def check_two_files(file1, file2):
     file1_list, file2_list = [], []
     with open(file1, 'r') as f1:
-        for i in f1.read().split('\n'):
-            file1_list.append(i.strip(' '))
+        file1_list = f1.read()
     with open(file2, 'r') as f1:
-        for i in f1.read().split('\n'):
-            file2_list.append(i.strip(' '))
+        file2_list = f2.read()
 
-    if len(file1_list) != len(file2_list):
+    if file1_list != file2_list:
         return False
-    else:
-        for i in range(len(file1_list)):
-            if file1_list[i] != file2_list[i]:
-                return False
+    
     return True
 
 
