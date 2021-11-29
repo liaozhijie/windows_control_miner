@@ -527,6 +527,8 @@ if __name__ == '__main__':
             start_teamredminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate)
             print ("monitor start")
     except Exception as err:
+        with open(log_path + 'monitor_crash_log.txt','w') as f:
+            f.write(err)
         send_email("monitor crash", err, 1, 3)
         
         
