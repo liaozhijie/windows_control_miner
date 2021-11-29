@@ -19,7 +19,8 @@ RECEIVERS_copy = ['604638487@qq.com']
 RECEIVERS_self = ['604638487@qq.com']
 
 def get_machine():
-    return ('1')
+    with open("C:/github/miner_number.txt", 'r') as f:
+        return str(f.read())
 
 def send_email(title, content, send_self, retry_times):
     
