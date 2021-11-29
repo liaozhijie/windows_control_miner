@@ -471,7 +471,7 @@ if __name__ == '__main__':
         while get_if_stop():
             file_path = log_path + 'trex_log.txt'
             
-            send_email(machine + "每二十四小时报告", read_trexminer_data(file_path, 86400, 0, 'ethash', 'kawpow', num_of_gpu, limint_hashrate), 0, 3)
+            # send_email(machine + "每二十四小时报告", read_trexminer_data(file_path, 86400, 0, 'ethash', 'kawpow', num_of_gpu, limint_hashrate), 0, 3)
             
             if datetime.now().strftime('%H:%M:%S')[:5] == '23:00':
                 send_email(machine + "每二十四小时报告", read_trexminer_data(file_path, 86400, 0, 'ethash', 'kawpow', num_of_gpu, limint_hashrate), 0, 3)
@@ -517,8 +517,6 @@ if __name__ == '__main__':
     try:
         if 't-rex' in miner_software:
             start_trexminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate)
-            print ("monitor start")
-            send_email("monitor start", "", 1, 3)
         elif 'nbminer' in miner_software:
             start_nbminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate)
             print ("monitor start")
@@ -526,8 +524,6 @@ if __name__ == '__main__':
             start_teamredminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate)
             print ("monitor start")
     except Exception as err:
-        with open(log_path + 'monitor_crash_log.txt','w') as f:
-            f.write(err)
         send_email("monitor crash", err, 1, 3)
         
         
