@@ -24,4 +24,4 @@ visit Github issue : https://www.cnblogs.com/golinuxstudy/p/15605476.html  (or h
 
 1.can not and above 1 order opreation on config.txt
 
-2.do not update download_config_apply.py and config.txt in the same time, cause download_config_apply.py would not effect when first download, but config.txt would effect.
+2.do not update download_config_apply.py and other file at the same time, cause download_config_apply.py would not effect when first download, but others would effect.
