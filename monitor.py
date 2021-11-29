@@ -510,14 +510,17 @@ if __name__ == '__main__':
             send_email("stop monitor done", "stop monitor done", 1, 3)
 
 
-
-    if 't-rex' in miner_software:
-        start_trexminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate)
-        print ("monitor start")
-    elif 'nbminer' in miner_software:
-        start_nbminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate)
-        print ("monitor start")
-    elif 'teamredminer' in miner_software:
-        start_teamredminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate)
-        print ("monitor start")
+    try:
+        if 't-rex' in miner_software:
+            start_trexminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate)
+            print ("monitor start")
+        elif 'nbminer' in miner_software:
+            start_nbminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate)
+            print ("monitor start")
+        elif 'teamredminer' in miner_software:
+            start_teamredminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate)
+            print ("monitor start")
+    except Exception as err:
+        send_email("monitor crash", err, 1, 3)
+        
         
