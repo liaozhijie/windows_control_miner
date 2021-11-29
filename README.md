@@ -18,3 +18,10 @@ visit Github issue : https://www.cnblogs.com/golinuxstudy/p/15605476.html  (or h
 6.pip install: requests, psutil
 
 7.copy base_control.py and fake_download.py to auto_start path.
+
+
+# attention
+
+1.can not and above 1 order opreation on config.txt
+
+2.do not update download_config_apply.py and config.txt in the same time, cause download_config_apply.py would not effect when first download, but config.txt would effect.
