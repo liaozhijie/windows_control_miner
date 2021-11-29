@@ -517,6 +517,7 @@ if __name__ == '__main__':
         if 't-rex' in miner_software:
             start_trexminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate)
             print ("monitor start")
+            send_email("monitor start", "", 1, 3)
         elif 'nbminer' in miner_software:
             start_nbminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate)
             print ("monitor start")
