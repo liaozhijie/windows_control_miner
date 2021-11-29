@@ -165,7 +165,7 @@ def apply_operation(NEED_OPERATION):
             time.sleep(10)
         elif order == 'restart_monitor' and order in order_list:
             stop_monitor()
-            time.sleep(30)
+            time.sleep(60)  # can not change 60s
             p = Process(target=monitor_process)
             p.start()
             print ("restart monitor done")
