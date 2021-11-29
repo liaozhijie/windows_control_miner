@@ -147,8 +147,8 @@ def apply_operation(NEED_OPERATION):
             send_email.send_email("start_miner done", "start_miner done", 1, 3)
             time.sleep(10)
         elif order == 'restart_miner' and order in order_list:
-            if 'cmd.exe' in process_list:
-                os.system(r'taskkill /F /IM cmd.exe')
+            if 't-rex.exe' in process_list:
+                os.system(r'taskkill /F /IM t-rex.exe')
                 time.sleep(30)
             elif 'qskg.exe' in process_list:
                 os.system(r'taskkill /F /IM qskg.exe')
