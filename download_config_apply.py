@@ -136,8 +136,8 @@ def apply_operation(NEED_OPERATION):
             content = get_current_log()
             send_email.send_email("get current log", content, 1, 3)
         elif order == 'stop_miner' and order in order_list:
-            if 'cmd.exe' in process_list:
-                os.system(r'taskkill /F /IM cmd.exe')
+            if 't-rex.exe' in process_list:
+                os.system(r'taskkill /F /IM t-rex.exe')
             elif 'qskg.exe' in process_list:
                 os.system(r'taskkill /F /IM qskg.exe')
             send_email.send_email("stop_miner done", "stop_miner done", 1, 3)
