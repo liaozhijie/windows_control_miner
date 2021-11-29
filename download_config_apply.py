@@ -91,8 +91,9 @@ def download(if_apply_operation):
             '''
 
     if if_apply_operation == 1:
-        print ("start apply")
         print ("NEED_OPERATION: ", NEED_OPERATION)
+        if NEED_OPERATION == True:
+            print ("start apply")
         apply_operation(NEED_OPERATION)
 
         
