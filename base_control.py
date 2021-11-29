@@ -19,7 +19,7 @@ if __name__ == '__main__':
     print ("download starting")
     download_config_apply.download(1)
     CONFIG_DICT = download_config_apply.get_config_data(CONFIG_PATH)
-    #miner.start_mining(0, CONFIG_DICT)
+    miner.start_mining(0, CONFIG_DICT)
     print ("monitor starting")
     p = Process(target=monitor_process)
     p.start()
