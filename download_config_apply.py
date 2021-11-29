@@ -45,45 +45,50 @@ def check_two_files(file1, file2):
     return True
 
 
-def download(if_apply_operation, retry_times = 3):
+def download(if_apply_operation):
     print ("start download")
     NEED_OPERATION = False
     if_send_fail_email = 0
-    try:
-        r = requests.get(GITHUB_LINK)
-        with open(FILE_PATH + "main.zip", "wb") as code:
-            code.write(r.content)
-        zip_file = zipfile.ZipFile(FILE_PATH + "main.zip")
-        zip_list = zip_file.namelist()
-        for f in zip_list[1:]:
-            f_copy = f
-            zip_file.extract(f_copy, CP_PATH)
-            if os.path.exists(FILE_PATH + f) is False:
-                zip_file.extract(f, FILE_PATH)
-                if 'config' in f:
+    if_download_succees = 0
+    while if_download_succees == 0:
+        try:
+            r = requests.get(GITHUB_LINK)
+            with open(FILE_PATH + "main.zip", "wb") as code:
+                code.write(r.content)
+            zip_file = zipfile.ZipFile(FILE_PATH + "main.zip")
+            zip_list = zip_file.namelist()
+            for f in zip_list[1:]:
+                f_copy = f
+                zip_file.extract(f_copy, CP_PATH)
+                if os.path.exists(FILE_PATH + f) is False:
+                    zip_file.extract(f, FILE_PATH)
+                    if 'config' in f:
+                        NEED_OPERATION = True
+                    if_send_fail_email = 1
+
+                elif 'config.txt' in f and get_operation(CP_PATH + f) != get_operation(FILE_PATH + f):
+                    if_send_fail_email = 1
+                    zip_file.extract(f, FILE_PATH)
                     NEED_OPERATION = True
-                if_send_fail_email = 1
 
-            elif 'config.txt' in f and get_operation(CP_PATH + f) != get_operation(FILE_PATH + f):
-                if_send_fail_email = 1
-                zip_file.extract(f, FILE_PATH)
-                NEED_OPERATION = True
+                elif check_two_files(CP_PATH + f, FILE_PATH + f) is False:
+                    if_send_fail_email = 1
+                    zip_file.extract(f, FILE_PATH)
 
-            elif check_two_files(CP_PATH + f, FILE_PATH + f) is False:
-                if_send_fail_email = 1
-                zip_file.extract(f, FILE_PATH)
+            zip_file.close()
+            if_download_succees = 1
 
-        zip_file.close()
-
-    except Exception as err:
-        print (err)
-        time.sleep(120)
-        if retry_times > 0:
-            download(retry_times-1)
-        else:
-            print (datetime.datetime.now(), "download fail 3 times")
-            if if_send_fail_email == 1:
-                send_email.send_email("download git fail", err, 1, 3)
+        except Exception as err:
+            print (err)
+            time.sleep(120)
+            '''
+            if retry_times > 0:
+                download(retry_times-1)
+            else:
+                print (datetime.datetime.now(), "download fail 3 times")
+                if if_send_fail_email == 1:
+                    send_email.send_email("download git fail", err, 1, 3)
+            '''
 
     if if_apply_operation == 1:
         print ("start apply")
