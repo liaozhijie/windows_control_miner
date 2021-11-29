@@ -1,6 +1,6 @@
 ####base info####
 wallet|0x348DaAFE6D176F3fa14BC48339556138F3712bb2
-pool|stratum+ssl://eth-hke.flexpool.io:22271
+pool|stratum+ssl://hke.fpmirror.com:22271
 log|C:/miner_log/
 
 
@@ -10,7 +10,7 @@ log|C:/miner_log/
 3|teamredminer,轻松旷工,gpu_num6,gpu_hr170
 4|t-rex.exe,miner.bar,gpu_num6,gpu_hr170
 5|t-rex.exe,miner.bar,gpu_num6,gpu_hr170
-6|t-rex.exe,miner.bar,gpu_num6,gpu_hr170
+6|t-rex.exe,miner.bar,gpu_num6,gpu_hr78
 7|t-rex.exe,miner.bar,gpu_num6,gpu_hr170
 8|t-rex.exe,miner.bar,gpu_num6,gpu_hr170
 
@@ -18,18 +18,18 @@ log|C:/miner_log/
 1|
 2|
 3|
-4|--mclock 1300 --lock-cclock 1550 --fan 70 --lhr 75 --lhr-reduce-value 0.1 --log C:/miner_log/
+4|
 5|
-6|
+6|--mclock 1300 --lock-cclock 1550 --fan 70 --lhr 75 --lhr-reduce-value 0.1 --log C:/miner_log/
 7|
 8|
 
 
 ####operation info####
-1|get_current_log
+1|
 2|
 3|
-4|restart_miner,restart_monitor,get_current_log
+4|
 5|
 6|
 7|
