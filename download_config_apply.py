@@ -79,7 +79,7 @@ def download(if_apply_operation):
             if_download_succees = 1
 
         except Exception as err:
-            print (err)
+            #print (err)
             time.sleep(120)
             '''
             if retry_times > 0:
