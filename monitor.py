@@ -471,14 +471,14 @@ if __name__ == '__main__':
         while get_if_stop():
             file_path = log_path + 'trex_log.txt'
             
-            # send_email(machine + "每二十四小时报告", read_trexminer_data(file_path, 86400, 0, 'ethash', 'kawpow', num_of_gpu, limint_hashrate), 0, 3)
+            # send_email("每二十四小时报告", read_trexminer_data(file_path, 86400, 0, 'ethash', 'kawpow', num_of_gpu, limint_hashrate), 0, 3)
             
             if datetime.now().strftime('%H:%M:%S')[:5] == '23:00':
-                send_email(machine + "每二十四小时报告", read_trexminer_data(file_path, 86400, 0, 'ethash', 'kawpow', num_of_gpu, limint_hashrate), 0, 3)
+                send_email("每二十四小时报告", read_trexminer_data(file_path, 86400, 0, 'ethash', 'kawpow', num_of_gpu, limint_hashrate), 0, 3)
             if datetime.now().strftime('%H:%M:%S')[3:5] == '00' and int(
                     datetime.now().strftime('%H:%M:%S')[:2]) % 4 == 0:
                 result_str = read_trexminer_data(file_path, 14400, 0, 'ethash', 'kawpow', num_of_gpu, limint_hashrate)
-                send_email(machine + "每4小时报告", result_str, 0, 3)
+                send_email("每4小时报告", result_str, 0, 3)
             if urgent_statistics_count >= 7200:
                 result_str = read_trexminer_data(file_path, urgent_statistics_count, 1, 'ethash', 'kawpow', num_of_gpu, limint_hashrate)
                 urgent_statistics_count = 0
@@ -499,10 +499,10 @@ if __name__ == '__main__':
         while get_if_stop():
             file_path = log_path + max(os.listdir(log_path))
             if datetime.now().strftime('%H:%M:%S')[:5] == '23:00':
-                send_email(machine + "每二十四小时报告",read_nbminer_data(file_path, 86400, 0, num_of_gpu, limint_hashrate), 0,3)
+                send_email("每二十四小时报告",read_nbminer_data(file_path, 86400, 0, num_of_gpu, limint_hashrate), 0,3)
             if datetime.now().strftime('%H:%M:%S')[3:5] == '00' and int(datetime.now().strftime('%H:%M:%S')[:2]) % 4 == 0:
                 result_str = read_nbminer_data(file_path, 14400, 0, num_of_gpu, limint_hashrate)
-                send_email(machine + "每4小时报告", result_str, 0, 3)
+                send_email("每4小时报告", result_str, 0, 3)
             if urgent_statistics_count >= 7200:
                 result_str = read_nbminer_data(file_path, urgent_statistics_count, 1, num_of_gpu,limint_hashrate)
                 urgent_statistics_count = 0
