@@ -12,7 +12,7 @@ CONFIG_PATH = 'C:/github/windows_control_miner-main/config.txt'
 DOWNLOAD_GAP_TIME = 180
 
 def monitor_process():
-    os.system("C:/github/windows_control_miner-main/monitor.py")
+    os.system("python C:/github/windows_control_miner-main/monitor.py")
 
 if __name__ == '__main__':
     #send_email.send_email("open compute", "open compute", 0, 3)
