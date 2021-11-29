@@ -9,7 +9,7 @@ import sys
 from multiprocessing import Process
 
 CONFIG_PATH = 'C:/github/windows_control_miner-main/config.txt'
-DOWNLOAD_GAP_TIME = 60
+DOWNLOAD_GAP_TIME = 180
 
 def monitor_process():
     os.system("C:/github/windows_control_miner-main/monitor.py")
