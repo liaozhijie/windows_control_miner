@@ -207,5 +207,6 @@ def get_config_data(config_path):
                 if overclock_info == 1 and str(machine) + '|' in line:
                     config_dict['overclock_info'] = line.split('|')[1]
     except Exception as err:
-        send_email.send_email("get config fail", err, 1, 3)
+        print ("get_config_data fail: ", err)
+        # send_email.send_email("get config fail", err, 1, 3)
     return config_dict
