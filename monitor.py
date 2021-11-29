@@ -134,7 +134,6 @@ def read_nbminer_data(file_path, gap_time, urgent, num_of_gpu, limint_hashrate):
 
 
 def read_trexminer_data(file_path, gap_time, urgent, count_algo, drop_algo, num_of_gpu, limint_hashrate):
-    time.sleep(1800)
     accepted_num = [0] * num_of_gpu
     temp_list = [0] * num_of_gpu
     local_hashrate_list = [0] * num_of_gpu
