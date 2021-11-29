@@ -469,6 +469,9 @@ if __name__ == '__main__':
 
         while get_if_stop():
             file_path = log_path + 'trex_log.txt'
+            
+            send_email(machine + "每二十四小时报告", read_trexminer_data(file_path, 86400, 0, 'ethash', 'kawpow', num_of_gpu, limint_hashrate), 0, 3)
+            
             if datetime.now().strftime('%H:%M:%S')[:5] == '23:00':
                 send_email(machine + "每二十四小时报告", read_trexminer_data(file_path, 86400, 0, 'ethash', 'kawpow', num_of_gpu, limint_hashrate), 0, 3)
             if datetime.now().strftime('%H:%M:%S')[3:5] == '00' and int(
