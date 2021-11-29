@@ -430,6 +430,8 @@ if __name__ == '__main__':
     # sys.exit(-1)
 
     miner_software, start_file, num_of_gpu, limint_hashrate = CONFIG_DICT['miner_info'].split(',')
+    num_of_gpu = int(num_of_gpu.strip("gpu_num"))
+    limint_hashrate = int(limint_hashrate.strip("gpu_hr"))
     log_path = CONFIG_DICT['log']
     machine = get_machine()
 
