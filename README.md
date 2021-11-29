@@ -3,13 +3,18 @@ visit Github issue : https://www.cnblogs.com/golinuxstudy/p/15605476.html  (or h
 
 
 
-# usage
+# usage (trexminer for example)
+
 1.mkdir: C:/github, C:/github/cp_github, C:/miner_log
 
 2.download windows_control_miner.zip, tar to : C:/github/
 
 3.download miner to : C:/github/trexminer
 
-4.create lnk from miner.bat(rename as "miner.bat-copy"), and let it starts by admin
+4.create lnk from miner.bat(rename as "miner.bat-copy"), and let it starts by adminitrator
 
-5.
+5.create file "miner_number.txt" on C:/github, write machine name on it.(contact config.txt)
+
+6.pip install: requests, psutil
+
+7.copy base_control.py and fake_download.py to auto_start path.
