@@ -10,7 +10,6 @@ from multiprocessing import Process
 
 CONFIG_PATH = 'C:/github/windows_control_miner-main/config.txt'
 DOWNLOAD_GAP_TIME = 60
-machaine = '1'
 
 def monitor_process():
     os.system("C:/github/windows_control_miner-main/monitor.py")
