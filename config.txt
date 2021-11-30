@@ -5,6 +5,7 @@ log|C:/miner_log/
 
 
 ####miner info####\n
+0|t-rex.exe,C:/github/trexminer/ETH-ethermine.bat,gpu_num6,gpu_hr270
 1|t-rex,C:/github/trexminer/ETH-ethermine.bat,gpu_num6,gpu_hr170
 2|teamredminer,轻松旷工,gpu_num6,gpu_hr170
 3|teamredminer,轻松旷工,gpu_num6,gpu_hr170
@@ -15,22 +16,24 @@ log|C:/miner_log/
 8|t-rex.exe,miner.bar,gpu_num6,gpu_hr170
 
 ####overclock info####
+0|--no-strict-ssl --fan 80 --lhr-tune 74.7 --lhr-autotune-step-size 0.1 --mclock 1175,1350,1375,1400,1400,1400 --lock-cclock 1575 --temperature-limit 72 --temperature-start 45 --log-path C:/miner_log/trex_log.txt
 1|
 2|
 3|
-4|--fan 70 --lhr-tune 75 --lhr-autotune-step-size 0.1 --mclock 1300,1300,1200,1125,1275,1300 --lock-cclock 1550 --log-path C:/miner_log/trex_log.txt
-5|--fan 70 --lhr-tune 75 --lhr-autotune-step-size 0.1 --mclock 1240,1300,1200,1300,1300,1300 --lock-cclock 1550 --log-path C:/miner_log/trex_log.txt
-6|--fan 50 --lhr-tune 74.7 --lhr-autotune-step-size 0.1 --mclock 1400,1300 --lock-cclock 1550,1525 --log-path C:/miner_log/trex_log.txt
+4|--no-strict-ssl --fan 70 --lhr-tune 75 --lhr-autotune-step-size 0.1 --mclock 1300,1300,1200,1125,1275,1300 --lock-cclock 1550 --temperature-start 45 --log-path --log-path C:/miner_log/trex_log.txt
+5|--no-strict-ssl --fan 70 --lhr-tune 75 --lhr-autotune-step-size 0.1 --mclock 1240,1300,1200,1300,1300,1300 --lock-cclock 1550 --temperature-start 45 --log-path --log-path C:/miner_log/trex_log.txt
+6|--no-strict-ssl --fan 50 --lhr-tune 74.7 --lhr-autotune-step-size 0.1 --mclock 1400,1300 --lock-cclock 1550,1525 --temperature-start 45 --log-path --log-path C:/miner_log/trex_log.txt
 7|
 8|
 
 
 ####operation info####
+0|
 1|
 2|
 3|
-4|
-5|
-6|
+4|restart_miner
+5|restart_miner
+6|restart_miner
 7|
 8|
