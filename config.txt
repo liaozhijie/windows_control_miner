@@ -19,7 +19,7 @@ log|C:/miner_log/
 2|
 3|
 4|--fan 70 --lhr-tune 75 --lhr-autotune-step-size 0.1 --mclock 1300,1300,1200,1125,1275,1300 --lock-cclock 1550 --log-path C:/miner_log/trex_log.txt
-5|--fan 70 --lhr-tune 75 --lhr-autotune-step-size 0.1 --mclock 1300 --lock-cclock 1550 --log-path C:/miner_log/trex_log.txt
+5|--fan 70 --lhr-tune 75 --lhr-autotune-step-size 0.1 --mclock 1240,1300,1200,1300,1300,1300 --lock-cclock 1550 --log-path C:/miner_log/trex_log.txt
 6|--fan 50 --lhr-tune 74.7 --lhr-autotune-step-size 0.1 --mclock 1400,1300 --lock-cclock 1550,1525 --log-path C:/miner_log/trex_log.txt
 7|
 8|
@@ -31,6 +31,6 @@ log|C:/miner_log/
 3|
 4|
 5|
-6|restart_monitor
+6|
 7|
 8|
