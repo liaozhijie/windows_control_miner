@@ -25,3 +25,5 @@ visit Github issue : https://www.cnblogs.com/golinuxstudy/p/15605476.html  (or h
 1.Can not add above 1 order opreation on config.txt
 
 2.Do not update download_config_apply.py and other file at the same time, cause download_config_apply.py would not effect when first download, but others would effect.
+
+3.If change config.txt, need to restart_monitor.
