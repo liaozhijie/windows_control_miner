@@ -16,7 +16,7 @@ log|C:/miner_log/
 8|t-rex.exe,miner.bar,gpu_num6,gpu_hr170
 
 ####overclock info####
-0|--no-strict-ssl --fan 80 --lhr-tune 74.7 --lhr-autotune-step-size 0.1 --mclock 1175,1350,1375,1400,1400,1400 --lock-cclock 1550 --temperature-limit 72 --temperature-start 45 --log-path C:/miner_log/trex_log.txt
+0|--no-strict-ssl --fan 80 --lhr-tune 74.8 --lhr-autotune-step-size 0.1 --mclock 1175,1350,1375,1400,1400,1400 --lock-cclock 1550 --temperature-limit 72 --temperature-start 45 --log-path C:/miner_log/trex_log.txt
 1|
 2|
 3|
