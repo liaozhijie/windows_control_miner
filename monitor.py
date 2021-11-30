@@ -460,7 +460,7 @@ if __name__ == '__main__':
             urgent_statistics_count += 60
         if get_if_stop() == False:
             print ("stop monitor done")
-            send_email("stop monitor done", "stop monitor done", 1, 3)
+            # send_email("stop monitor done", "stop monitor done", 1, 3)
 
 
     def start_trexminer_monitor(urgent_statistics_count, log_path, num_of_gpu, limint_hashrate):
@@ -487,7 +487,7 @@ if __name__ == '__main__':
             urgent_statistics_count += 60
         if get_if_stop() == False:
             print ("stop monitor done")
-            send_email("stop monitor done", "stop monitor done", 1, 3)
+            # send_email("stop monitor done", "stop monitor done", 1, 3)
 
 
 
@@ -511,7 +511,7 @@ if __name__ == '__main__':
             urgent_statistics_count += 60
         if get_if_stop() == False:
             print ("stop monitor done")
-            send_email("stop monitor done", "stop monitor done", 1, 3)
+            # send_email("stop monitor done", "stop monitor done", 1, 3)
 
 
     try:
