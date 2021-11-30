@@ -10,7 +10,7 @@ log|C:/miner_log/
 3|teamredminer,轻松旷工,gpu_num6,gpu_hr170
 4|t-rex.exe,miner.bar,gpu_num6,gpu_hr170
 5|t-rex.exe,miner.bar,gpu_num6,gpu_hr170
-6|t-rex.exe,C:/github/trexminer/ETH-ethermine.bat,gpu_num2,gpu_hr78
+6|t-rex.exe,C:/github/trexminer/ETH-ethermine.bat,gpu_num2,gpu_hr85
 7|t-rex.exe,miner.bar,gpu_num6,gpu_hr170
 8|t-rex.exe,miner.bar,gpu_num6,gpu_hr170
 
