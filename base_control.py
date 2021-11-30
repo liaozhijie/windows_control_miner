@@ -26,6 +26,5 @@ if __name__ == '__main__':
     
     #send_email.send_email("start mining", "start mining", 0, 3)
     while True:
-        print ("in while loop")
         time.sleep(DOWNLOAD_GAP_TIME)
         download_config_apply.download(1)
