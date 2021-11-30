@@ -25,7 +25,6 @@ def get_operation(file_path):
             if start_count == 0:
                 continue
             if str(machine) + '|' in line:
-                print ("operation: ", line)
                 return line.strip(str(machine) + '|').strip('\n')
     print ("cat not find machine overclock param, check the config.txt")
     return False
@@ -81,14 +80,6 @@ def download(if_apply_operation):
         except Exception as err:
             #print (err)
             time.sleep(15)
-            '''
-            if retry_times > 0:
-                download(retry_times-1)
-            else:
-                print (datetime.datetime.now(), "download fail 3 times")
-                if if_send_fail_email == 1:
-                    send_email.send_email("download git fail", err, 1, 3)
-            '''
 
     if if_apply_operation == 1:
         print ("NEED_OPERATION: ", NEED_OPERATION)
@@ -148,21 +139,21 @@ def apply_operation(NEED_OPERATION):
             elif 'qskg.exe' in process_list:
                 os.system(r'taskkill /F /IM qskg.exe')
             send_email.send_email("stop_miner done", "stop_miner done", 1, 3)
-            time.sleep(30)
+            time.sleep(60)
         elif order == 'start_miner' and order in order_list:
             miner.start_mining(0, config_dict)
             send_email.send_email("start_miner done", "start_miner done", 1, 3)
-            time.sleep(10)
+            time.sleep(30)
         elif order == 'restart_miner' and order in order_list:
             if 't-rex.exe' in process_list:
                 os.system(r'taskkill /F /IM t-rex.exe')
-                time.sleep(30)
+                time.sleep(60)
             elif 'qskg.exe' in process_list:
                 os.system(r'taskkill /F /IM qskg.exe')
-                time.sleep(30)
+                time.sleep(60)
             miner.start_mining(1, config_dict)
             send_email.send_email("restart_miner done", "restart_miner done", 1, 3)
-            time.sleep(10)
+            time.sleep(60)
         elif order == 'restart_monitor' and order in order_list:
             stop_monitor()
             time.sleep(60)  # can not change 60s
