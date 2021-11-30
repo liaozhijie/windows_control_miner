@@ -1,3 +1,4 @@
+# encoding: utf-8
 import os
 import datetime
 import time
@@ -15,7 +16,7 @@ def monitor_process():
     os.system("python C:/github/windows_control_miner-main/monitor.py")
 
 if __name__ == '__main__':
-    #send_email.send_email("open compute", "open compute", 0, 3)
+    #send_email.send_email("开机", "开机", 0, 3)
     print ("download starting")
     download_config_apply.download(1)
     CONFIG_DICT = download_config_apply.get_config_data(CONFIG_PATH)
@@ -24,7 +25,7 @@ if __name__ == '__main__':
     p = Process(target=monitor_process)
     p.start()
     
-    #send_email.send_email("start mining", "start mining", 0, 3)
+    #send_email.send_email("开始工作", "开始工作", 0, 3)
     while True:
         time.sleep(DOWNLOAD_GAP_TIME)
         download_config_apply.download(1)
