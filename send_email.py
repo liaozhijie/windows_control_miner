@@ -15,8 +15,8 @@ from email import encoders
 #3301075190,szdrkmcumtcudage
 #604638487,tcoyxslsopdmbbdb
 
-#RECEIVERS_copy = ['604638487@qq.com','3567741421@qq.com','3080002996@qq.com']
-RECEIVERS_copy = ['604638487@qq.com']
+RECEIVERS_copy = ['604638487@qq.com','3567741421@qq.com','3080002996@qq.com']
+#RECEIVERS_copy = ['604638487@qq.com']
 RECEIVERS_self = ['604638487@qq.com']
 
 def get_machine():
