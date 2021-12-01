@@ -50,7 +50,7 @@ def download(if_apply_operation):
     if_send_fail_email = 0
     if_download_succees = 0
     download_times = 0
-    while if_download_succees == 0 and download_times < 3:
+    while if_download_succees == 0 and download_times >= 2:
         try:
             r = requests.get(GITHUB_LINK)
             with open(FILE_PATH + "main.zip", "wb") as code:
