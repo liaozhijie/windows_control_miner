@@ -312,7 +312,7 @@ def read_teamredminer_data(line_list, gap_time, urgent, num_of_gpu, limint_hashr
             if int(line.split(',')[0][-3:][:2]) >= 63 and urgent == 1:
                 send_email("温度较高", ', 显卡%s温度%s度' % (gpu_num, int(line.split(',')[0][-3:][:2])), 0, 3)
                 break
-            if int(line.split('hw:')[1]) > 2 and urgent == 1:
+            if int(line.split('hw:')[1]) > 50 and urgent == 1:
                 send_email(" 重启", "存在无效，重启电脑", 0, 3)
                 os.system("shutdown -r")
                 sys.exit(-1)
