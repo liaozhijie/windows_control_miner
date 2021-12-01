@@ -29,4 +29,5 @@ if __name__ == '__main__':
     #send_email.send_email("开始工作", "开始工作", 0, 3)
     while True:
         time.sleep(DOWNLOAD_GAP_TIME)
+        import download_config_apply
         download_config_apply.download(1)
