@@ -17,7 +17,7 @@ log|C:/miner_log/
 
 ####overclock info####
 0|--no-strict-ssl --fan 80 --lhr-tune 74.8 --lhr-autotune-step-size 0.1 --mclock 1175,1350,1375,1400,1400,1400 --lock-cclock 1550 --temperature-limit 72 --temperature-start 45 --log-path C:/miner_log/trex_log.txt
-1|
+1|--log_file C:/miner_log/
 2|
 3|
 4|--no-strict-ssl --fan 70 --lhr-tune 75 --lhr-autotune-step-size 0.1 --mclock 1300,1300,1200,1125,1275,1300 --lock-cclock 1550 --temperature-start 45 --log-path C:/miner_log/trex_log.txt
