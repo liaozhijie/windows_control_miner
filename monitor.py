@@ -296,7 +296,7 @@ def read_teamredminer_data(line_list, gap_time, urgent, num_of_gpu, limint_hashr
     hang_on_monitor = 0
 
     for line in line_list:
-        if 'Team Red Miner version 0.8.3' in line or line == '':
+        if 'Team Red Miner version 0.8.' in line or line == '':
             continue
         if (datetime.now() - datetime.strptime(line[1:20], '%Y-%m-%d %H:%M:%S')).total_seconds() > gap_time:
             break
@@ -443,7 +443,7 @@ if __name__ == '__main__':
             with open(log_path + 'if_stop_monitor.txt','r') as f:
                 return f.read() == "0"
         while get_if_stop():
-            file_path = log_path + max(os.listdir(log_path))
+            file_path = log_path + "log.txt"
             if datetime.now().strftime('%H:%M:%S')[:5] == '23:00':
                 line_list = read_lines(file_path, 150000)
                 send_email("每二十四小时报告", read_teamredminer_data(line_list, 86400, 0, num_of_gpu, limint_hashrate), 0, 3)
