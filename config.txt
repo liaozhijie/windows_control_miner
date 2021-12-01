@@ -30,7 +30,7 @@ log|C:/miner_log/
 ####operation info####
 0|restart_monitor
 1|restart_miner
-2|
+2|restart_miner
 3|
 4|
 5|
