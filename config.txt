@@ -7,8 +7,8 @@ log|C:/miner_log/
 ####miner info####\n
 0|t-rex.exe,C:/github/trexminer/ETH-ethermine.bat,gpu_num6,gpu_hr270
 1|teamredminer,C:/github/teamredminer/start_eth.bat,gpu_num6,gpu_hr270
-2|teamredminer,轻松旷工,gpu_num6,gpu_hr170
-3|teamredminer,轻松旷工,gpu_num6,gpu_hr170
+2|teamredminer,C:/github/teamredminer/start_eth.bat,gpu_num6,gpu_hr165
+3|teamredminer,C:/github/teamredminer/start_eth.bat,gpu_num6,gpu_hr165
 4|t-rex.exe,C:/github/trexminer/ETH-ethermine.bat,gpu_num6,gpu_hr208
 5|t-rex.exe,C:/github/trexminer/ETH-ethermine.bat,gpu_num6,gpu_hr208
 6|t-rex.exe,C:/github/trexminer/ETH-ethermine.bat,gpu_num2,gpu_hr76
