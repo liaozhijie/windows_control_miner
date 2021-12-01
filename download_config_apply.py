@@ -138,6 +138,8 @@ def apply_operation(NEED_OPERATION):
                 os.system(r'taskkill /F /IM t-rex.exe')
             elif 'qskg.exe' in process_list:
                 os.system(r'taskkill /F /IM qskg.exe')
+            elif 'teamredminer.exe' in process_list:
+                os.system(r'taskkill /F /IM teamredminer.exe')
             send_email.send_email("stop_miner done", "stop_miner done", 1, 3)
             time.sleep(60)
         elif order == 'start_miner' and order in order_list:
@@ -150,6 +152,9 @@ def apply_operation(NEED_OPERATION):
                 time.sleep(60)
             elif 'qskg.exe' in process_list:
                 os.system(r'taskkill /F /IM qskg.exe')
+                time.sleep(60)
+            elif 'teamredminer.exe' in process_list:
+                os.system(r'taskkill /F /IM teamredminer.exe')
                 time.sleep(60)
             miner.start_mining(1, config_dict)
             send_email.send_email("restart_miner done", "restart_miner done", 1, 3)
