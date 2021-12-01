@@ -17,7 +17,7 @@ def monitor_process():
 
 if __name__ == '__main__':
     #send_email.send_email("开机", "开机", 0, 3)
-    time.sleep(30)
+    time.sleep(15)
     print ("download starting")
     download_config_apply.download(1)
     CONFIG_DICT = download_config_apply.get_config_data(CONFIG_PATH)
