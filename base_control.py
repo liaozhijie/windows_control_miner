@@ -16,7 +16,8 @@ def monitor_process():
     os.system("python C:/github/windows_control_miner-main/monitor.py")
 
 if __name__ == '__main__':
-    #send_email.send_email("开机", "开机", 0, 3)
+    send_email.send_email("开机", "开机", 0, 3)
+    
     time.sleep(15)
     print ("download starting")
     download_config_apply.download(1)
@@ -26,7 +27,7 @@ if __name__ == '__main__':
     p = Process(target=monitor_process)
     p.start()
     
-    #send_email.send_email("开始工作", "开始工作", 0, 3)
+    send_email.send_email("开始工作", "开始工作", 0, 3)
     while True:
         time.sleep(DOWNLOAD_GAP_TIME)
         import download_config_apply
