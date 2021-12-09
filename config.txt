@@ -22,7 +22,7 @@ log|C:/miner_log/
 3|--log_file=C:/miner_log/log.txt --enable_compute --clk_core_mhz=1165 --clk_core_mv=860 --clk_mem_mhz=1950 --clk_mem_mv=865 --temp_limit=63 --temp_resume=40
 4|--no-strict-ssl --fan 70 --lhr-tune 75 --lhr-autotune-step-size 0.1 --mclock 1300,1300,1200,1125,1275,1300 --lock-cclock 1550 --temperature-limit 72 --temperature-start 45 --log-path C:/miner_log/trex_log.txt
 5|--no-strict-ssl --fan 70 --lhr-tune 75 --lhr-autotune-step-size 0.1 --mclock 1240,1300,1200,1300,1300,1300 --lock-cclock 1550 --temperature-limit 72 --temperature-start 45 --log-path C:/miner_log/trex_log.txt
-6|--no-strict-ssl --fan 50 --lhr-tune 74.7 --lhr-autotune-step-size 0.1 --mclock 1400,1300 --lock-cclock 1550,1525 --temperature-limit 72 --temperature-start 45 --log-path C:/miner_log/trex_log.txt
+6|--no-strict-ssl --fan 50 --lhr-tune 74.7 --lhr-autotune-step-size 0.1 --mclock 1385,1300 --lock-cclock 1550,1525 --temperature-limit 72 --temperature-start 45 --log-path C:/miner_log/trex_log.txt
 7|
 8|
 
