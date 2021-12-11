@@ -49,8 +49,8 @@ def download(if_apply_operation):
     NEED_OPERATION = False
     if_send_fail_email = 0
     if_download_succees = 0
-    download_times = 0
-    while if_download_succees == 0 and download_times >= 2:
+    download_times = 3
+    while if_download_succees == 0 and download_times > 0:
         try:
             r = requests.get(GITHUB_LINK)
             with open(FILE_PATH + "main.zip", "wb") as code:
@@ -82,7 +82,7 @@ def download(if_apply_operation):
             #print (err)
             time.sleep(15)
             
-        download_times = download_times + 1
+        download_times = download_times - 1
 
     if if_apply_operation == 1:
         print ("NEED_OPERATION: ", NEED_OPERATION)
