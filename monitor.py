@@ -136,6 +136,7 @@ def read_nbminer_data(file_path, gap_time, urgent, num_of_gpu, limint_hashrate):
 def read_trexminer_data(file_path, gap_time, urgent, count_algo, drop_algo, num_of_gpu, limint_hashrate):
     accepted_num = [0] * num_of_gpu
     temp_list = [0] * num_of_gpu
+    mem_temp_list = [0] * num_of_gpu
     local_hashrate_list = [0] * num_of_gpu
     pool_hashrate_list = [0] * num_of_gpu
     reject_num = [0] * num_of_gpu
@@ -183,8 +184,13 @@ def read_trexminer_data(file_path, gap_time, urgent, count_algo, drop_algo, num_
                 except:
                     print (line)
                 temp_list[gpu_num] += int(line.split('T:')[1][:2])
+                if line.split('T:')[1][2] == '/':
+                    mem_temp_list[gpu_num] += int(line.split('T:')[1][3:5])
                 if int(line.split('T:')[1][:2]) >= 68 and urgent == 1:
                         send_email("温度较高", ', 显卡%s温度%s度' % (gpu_num, int(line.split('T:')[1][:2])), 0, 3)
+                        break
+                if line.split('T:')[1][2] == '/' and int(line.split('T:')[1][3:5]) >= 110 and urgent == 1:
+                        send_email("显存温度较高", ', 显卡%s显存温度%s度' % (gpu_num, int(line.split('T:')[1][3:5])), 0, 3)
                         break
                 #if int(line.split('|')[5].strip(' ')) > 999 and urgent == 1:
                 #    send_email(machine + " 无效", "存在无效，停止监控")
@@ -262,8 +268,8 @@ def read_trexminer_data(file_path, gap_time, urgent, count_algo, drop_algo, num_
 
     res_str = '提交：%s ， 拒绝：%s ， 本地平均算力：%s ， 池平均算力：%s ， 网络断开时间：%s分钟 <br/><br/> ' % (sum(accepted_num), sum(reject_num), '%.1f' % (sum(local_hashrate_list)/count_list[0]), '%.1f' % (sum(pool_hashrate_list)/count_list[0]), internet_break_time)
     for i in range(len(accepted_num)):
-        res_str = res_str + 'GPU%s: 提交：%s, 拒绝：%s, 温度：%s, ' \
-                                '算力：%s' % (str(i),accepted_num[i],reject_num[i],'%.1f' % (temp_list[i]/count_list[0]),
+        res_str = res_str + 'GPU%s: 提交：%s, 拒绝：%s, 温度：%s, 显存温度：%s' \
+                                '算力：%s' % (str(i),accepted_num[i],reject_num[i],'%.1f' % (temp_list[i]/count_list[0]),'%.1f' % (mem_temp_list[i]/count_list[0]),
                                                       '%.1f' % (local_hashrate_list[i]/count_list[0])) + '<br/>'
     # 标准提交个数：48.9Mh 每分钟提交一个
     if count_algo == 'ethash':
