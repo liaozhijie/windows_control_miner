@@ -269,7 +269,7 @@ def read_trexminer_data(file_path, gap_time, urgent, count_algo, drop_algo, num_
 
     res_str = '提交：%s ， 拒绝：%s ， 本地平均算力：%s ， 池平均算力：%s ， 网络断开时间：%s分钟 <br/><br/> ' % (sum(accepted_num), sum(reject_num), '%.1f' % (sum(local_hashrate_list)/count_list[0]), '%.1f' % (sum(pool_hashrate_list)/count_list[0]), internet_break_time)
     for i in range(len(accepted_num)):
-        res_str = res_str + 'GPU%s: 提交：%s, 拒绝：%s, 温度：%s, 显存温度：%s' \
+        res_str = res_str + 'GPU%s: 提交：%s, 拒绝：%s, 温度：%s, 显存温度：%s, ' \
                                 '算力：%s' % (str(i),accepted_num[i],reject_num[i],'%.1f' % (temp_list[i]/count_list[0]),'%.1f' % (mem_temp_list[i]/count_list[0]),
                                                       '%.1f' % (local_hashrate_list[i]/count_list[0])) + '<br/>'
     # 标准提交个数：48.9Mh 每分钟提交一个
