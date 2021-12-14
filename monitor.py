@@ -189,9 +189,12 @@ def read_trexminer_data(file_path, gap_time, urgent, count_algo, drop_algo, num_
                 if int(line.split('T:')[1][:2]) >= 68 and urgent == 1:
                         send_email("温度较高", ', 显卡%s温度%s度' % (gpu_num, int(line.split('T:')[1][:2])), 0, 3)
                         break
-                if line.split('T:')[1][2] == '/' and int(line.split('T:')[1][3:5]) >= 110 and urgent == 1:
-                        send_email("显存温度较高，自动关机", ', 显卡%s显存温度%s度' % (gpu_num, int(line.split('T:')[1][3:5])), 0, 3)
-                        os.system("shutdown -s -t 5")
+                if line.split('T:')[1][2] == '/' and int(line.split('T:')[1][3:5]) >= 105 and urgent == 1:
+                        send_email("显存温度较高", ', 显卡%s显存温度%s度' % (gpu_num, int(line.split('T:')[1][3:5])), 0, 3)
+                        if line.split('T:')[1][2] == '/' and int(line.split('T:')[1][3:5]) >= 110 and urgent == 1:
+                            send_email("显存温度较高，自动关机", ', 显卡%s显存温度%s度' % (gpu_num, int(line.split('T:')[1][3:5])), 0, 3)
+                            os.system("shutdown -s -t 5")
+                            break
                         break
                 #if int(line.split('|')[5].strip(' ')) > 999 and urgent == 1:
                 #    send_email(machine + " 无效", "存在无效，停止监控")
