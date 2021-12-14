@@ -13,7 +13,10 @@ def start_mining(if_restart, CONFIG_DICT):
     if 'qskg' not in miner_software:
         with open(start_file_path, 'w') as w:
             if 't-rex' in miner_software:
-                w.write(miner_software + ' -a ethash -o ' + CONFIG_DICT['pool'] + ' -u ' + CONFIG_DICT['wallet'] + ' -p x -w ' + str(send_email.get_machine()) + ' ' + CONFIG_DICT['overclock_info'] + '\n' + 'pause')
+                if send_email.get_machine() == "7":
+                    w.write("@setlocal enableextensions\n@cd /d \"%~dp0\"\n" + miner_software + ' -a ethash -o ' + CONFIG_DICT['pool'] + ' -u ' + CONFIG_DICT['wallet'] + ' -p x -w ' + str(send_email.get_machine()) + ' ' + CONFIG_DICT['overclock_info'] + '\n' + 'pause')
+                else:
+                    w.write(miner_software + ' -a ethash -o ' + CONFIG_DICT['pool'] + ' -u ' + CONFIG_DICT['wallet'] + ' -p x -w ' + str(send_email.get_machine()) + ' ' + CONFIG_DICT['overclock_info'] + '\n' + 'pause')
             elif 'nbminer' in miner_software:
                 w.write(miner_software + ' -a ethash -o ' + CONFIG_DICT['pool'] + ' -u ' + CONFIG_DICT['wallet'] + '.' + str(send_email.get_machine()) + ' ' + CONFIG_DICT['overclock_info'] + '\n' + 'pause')
             elif 'teamredminer' in miner_software:
