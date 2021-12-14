@@ -33,7 +33,7 @@ log|C:/miner_log/
 2|
 3|
 4|
-5|
+5|restart_miner
 6|restart_miner
 7|
 8|
