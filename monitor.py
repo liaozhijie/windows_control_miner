@@ -486,7 +486,7 @@ if __name__ == '__main__':
                     datetime.now().strftime('%H:%M:%S')[:2]) % 4 == 0:
                 result_str = read_trexminer_data(file_path, 14400, 0, 'ethash', 'kawpow', num_of_gpu, limint_hashrate)
                 send_email("每4小时报告", result_str, 0, 3)
-            if urgent_statistics_count >= 7200:
+            if urgent_statistics_count >= 3600:
                 result_str = read_trexminer_data(file_path, urgent_statistics_count, 1, 'ethash', 'kawpow', num_of_gpu, limint_hashrate)
                 urgent_statistics_count = 0
 
@@ -510,7 +510,7 @@ if __name__ == '__main__':
             if datetime.now().strftime('%H:%M:%S')[3:5] == '00' and int(datetime.now().strftime('%H:%M:%S')[:2]) % 4 == 0:
                 result_str = read_nbminer_data(file_path, 14400, 0, num_of_gpu, limint_hashrate)
                 send_email("每4小时报告", result_str, 0, 3)
-            if urgent_statistics_count >= 7200:
+            if urgent_statistics_count >= 3600:
                 result_str = read_nbminer_data(file_path, urgent_statistics_count, 1, num_of_gpu,limint_hashrate)
                 urgent_statistics_count = 0
 
