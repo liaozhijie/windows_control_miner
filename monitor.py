@@ -49,7 +49,7 @@ def read_nbminer_data(file_path, gap_time, urgent, num_of_gpu, limint_hashrate):
                 except:
                     print (line)
                 temp_list[gpu_num] += int(line.replace(' ','').split('|')[8])
-                if int(line.replace(' ','').split('|')[8]) >= 68 and urgent == 1:
+                if int(line.replace(' ','').split('|')[8]) >= 65 and urgent == 1:
                         send_email("温度较高", ', 显卡%s温度%s度' % (gpu_num, int(line.replace(' ','').split('|')[8])), 0, 3)
                         break
                 if int(line.split('|')[5].strip(' ')) > 999 and urgent == 1:
@@ -186,7 +186,7 @@ def read_trexminer_data(file_path, gap_time, urgent, count_algo, drop_algo, num_
                 temp_list[gpu_num] += int(line.split('T:')[1][:2])
                 if line.split('T:')[1][2] == '/':
                     mem_temp_list[gpu_num] += int(line.split('T:')[1][3:5])
-                if int(line.split('T:')[1][:2]) >= 68 and urgent == 1:
+                if int(line.split('T:')[1][:2]) >= 65 and urgent == 1:
                         send_email("温度较高", ', 显卡%s温度%s度' % (gpu_num, int(line.split('T:')[1][:2])), 0, 3)
                         break
                 if line.split('T:')[1][2] == '/' and int(line.split('T:')[1][3:5]) >= 105 and urgent == 1:
