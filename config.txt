@@ -28,11 +28,11 @@ log|C:/miner_log/
 
 
 ####operation info####
-0|
+0|restart_miner
 1|
 2|
 3|
-4|
+4|restart_miner
 5|
 6|
 7|
