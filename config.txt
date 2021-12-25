@@ -1,6 +1,6 @@
 ####base info####
 wallet|0x348DaAFE6D176F3fa14BC48339556138F3712bb2
-pool|stratum+ssl://hke.fpmirror.com:5555
+pool|stratum+ssl://hke.fpmirror.com:22271
 log|C:/miner_log/
 
 
@@ -28,11 +28,11 @@ log|C:/miner_log/
 
 
 ####operation info####
-0|restart_miner
+0|
 1|
 2|
 3|
-4|restart_miner
+4|
 5|
 6|
 7|
