@@ -12,7 +12,7 @@ log|C:/miner_log/
 4|t-rex.exe,C:/github/trexminer/ETH-ethermine.bat,gpu_num6,gpu_hr208
 5|t-rex.exe,C:/github/trexminer/ETH-ethermine.bat,gpu_num6,gpu_hr208
 6|t-rex.exe,C:/github/trexminer/ETH-ethermine.bat,gpu_num5,gpu_hr175
-7|t-rex.exe,C:/github/trexminer/ETH-ethermine.bat,gpu_num5,gpu_hr375
+7|t-rex.exe,C:/github/trexminer/ETH-ethermine.bat,gpu_num5,gpu_hr425
 8|t-rex.exe,miner.bar,gpu_num6,gpu_hr170
 
 ####overclock info####
