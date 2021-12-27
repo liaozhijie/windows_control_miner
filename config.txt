@@ -33,7 +33,7 @@ log|C:/miner_log/
 2|
 3|
 4|get_current_log
-5|
+5|get_current_log
 6|
 7|
 8|
