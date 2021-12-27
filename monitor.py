@@ -151,7 +151,7 @@ def read_trexminer_data(file_path, gap_time, urgent, count_algo, drop_algo, num_
     total_run_time = 0
     last_sign_list = [1] * 3
     restart_num = 0
-    algo_swich = 0
+    algo_swich = 1
 
     hang_on_monitor_list = []
     hang_on_monitor = 0
