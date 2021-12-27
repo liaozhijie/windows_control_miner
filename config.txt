@@ -32,8 +32,8 @@ log|C:/miner_log/
 1|
 2|
 3|
-4|get_current_log
-5|get_current_log
-6|
+4|restart_monitor
+5|restart_monitor
+6|restart_monitor
 7|
 8|
