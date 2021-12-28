@@ -177,7 +177,7 @@ def read_trexminer_data(file_path, gap_time, urgent, count_algo, drop_algo, num_
             if 'Share rejected' in line:
                 found_gpu = int(line[line.index('DEVICE') + 7])
                 reject_num[found_gpu] += 1
-            if algo_swich == 1 and ('RTX 3060' in line or '3080 Ti' in line) and 'GPU' in line and 'LHR' in line:
+            if ('RTX 3060' in line or '3080 Ti' in line) and 'GPU' in line and 'LHR' in line:
 
                 try:
                     gpu_num = int(line.split('#')[1][0])
