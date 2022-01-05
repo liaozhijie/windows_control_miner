@@ -12,7 +12,7 @@ flux pool:
 redir :2033 asia.minerpool.org:2033
 
 ton pool:
-redir :1234 server1.whalestonpool.com
+redir :443 server1.whalestonpool.com:443
 
 
 
