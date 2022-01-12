@@ -36,3 +36,5 @@ visit Github issue : https://www.cnblogs.com/golinuxstudy/p/15605476.html  (or h
 2.hide SNI. trexminer using --no-sni. other miner has no hide
 
 3.redir Dev fee shares. lolminer and trexminer are safe.
+
+4.teamredminer using --dev_location=cn --dns_https=https://1.1.1.1/dns-query --dns_https_sni=HOST
