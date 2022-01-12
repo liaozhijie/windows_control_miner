@@ -27,3 +27,12 @@ visit Github issue : https://www.cnblogs.com/golinuxstudy/p/15605476.html  (or h
 2.Do not update download_config_apply.py and other file at the same time, cause download_config_apply.py would not effect when first download, but others would effect.
 
 3.If change config.txt, need to restart_monitor.
+
+
+
+# security operation
+1.add dns-over-https. LOLminer is defalut, trexminer using --dns-https-server 1.1.1.1
+
+2.hide SNI. trexminer using --no-sni. other miner has no hide
+
+3.redir Dev fee shares. lolminer and trexminer are safe.
