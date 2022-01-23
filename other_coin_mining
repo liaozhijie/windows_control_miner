@@ -18,3 +18,10 @@ redir :443 server1.whalestonpool.com:443
 
 toncoin Okex addres:
 EQBfAN7LfaUYgXZNw5Wc7GBgkEX2yhuJ5ka95J1JJwXXf4a8
+
+
+###### Mine ALPH on metapool #####
+pool url on hiveos: "eu.metapool.tech:20032"
+pool website: https://metapool.tech/dashboard
+ALPH wallet: 1H8kfomKh57MJn4Wd9tvMXnR2JUxhbX1AXx763JAkc6aG
+gate.io wallet: 1MRDtokCPEunzzDEi4HkmH8RGrvcoRTjcsvcMhndV2CR
