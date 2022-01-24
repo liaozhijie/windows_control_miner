@@ -20,9 +20,10 @@ toncoin Okex addres:
 EQBfAN7LfaUYgXZNw5Wc7GBgkEX2yhuJ5ka95J1JJwXXf4a8
 
 
-###### Mine ALPH on metapool #####
+###### Mine ALPH on woodlypool #####
 ALPH wallet signin: liaozhijie liaozhijie
-pool url on hiveos: "eu.metapool.tech:20032"
-pool website: https://metapool.tech/dashboard
+pool url on hiveos: "pool.woolypooly.com:3106"
+"redir :3106 pool.woolypooly.com:3106"
+pool website: https://woolypooly.com/zh/coin/alph
 ALPH wallet: 1H8kfomKh57MJn4Wd9tvMXnR2JUxhbX1AXx763JAkc6aG
 gate.io wallet: 1MRDtokCPEunzzDEi4HkmH8RGrvcoRTjcsvcMhndV2CR
