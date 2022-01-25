@@ -37,4 +37,8 @@ visit Github issue : https://www.cnblogs.com/golinuxstudy/p/15605476.html  (or h
 
 3.redir Dev fee shares. lolminer and trexminer are safe.
 
-4.teamredminer using --dev_location=cn --dns_https=https://1.1.1.1/dns-query --dns_https_sni=HOST
+4.teamredminer using:
+--dev_location=cn 
+--dns_https_sni=flexpool.ca
+--dns_https=https://1.1.1.1/dns-query
+--eth_stratum_mode=ethproxy
