@@ -24,6 +24,8 @@ EQBfAN7LfaUYgXZNw5Wc7GBgkEX2yhuJ5ka95J1JJwXXf4a8
 ALPH wallet signin: liaozhijie liaozhijie
 pool url on hiveos: "pool.woolypooly.com:3106"
 "redir :3106 pool.woolypooly.com:3106"
+metapool: redir :20032 as.pool.metapool.tech:20032
+meta website: https://metapool.tech/onboarding
 pool website: https://woolypooly.com/zh/coin/alph
 ALPH wallet: 1H8kfomKh57MJn4Wd9tvMXnR2JUxhbX1AXx763JAkc6aG
 gate.io wallet: 1MRDtokCPEunzzDEi4HkmH8RGrvcoRTjcsvcMhndV2CR
