@@ -10,6 +10,7 @@ pause
 
 flux pool:
 redir :2033 asia.minerpool.org:2033
+flux gate address: t1XoiyA3HoqbTSuRuJuQz3kZDWuQiEDHFPe
 
 ton pool:
 redir :443 server1.whalestonpool.com:443
