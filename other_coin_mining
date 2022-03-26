@@ -1,3 +1,8 @@
+ergo:
+3060 double mining oc: core 1225
+3080TI double mining oc: core 1530
+3060TI single mining oc: core 1350 lhr-tune 35.9
+
 SERO:
 t-rex.exe -a progpow --coin sero -o stratum+tcp://pool2.sero.cash:8808 --mclock 1300,1300,1200,1125,1275,1300 --cclock 150 --temperature-limit 72 --temperature-start 45 --log-path C:/miner_log/trex_log.txt --fan 80 --pl 95 -u 29Uhyrgg167yQLLx2pv9GzKngDuEzzPcZKyUEHao6LLuQtNfeaFk9i1ockn5Ma4a8hymPcgt2GFFgVr813oQecJzFZDroCHNAYMBk9j1PacWL4L7Dytw9kPzapdn9dmuQeY5 -p x -w 4 
 pause
